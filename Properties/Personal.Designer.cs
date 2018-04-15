@@ -25,13 +25,13 @@ namespace HM4DesignTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("personak")]
-        public string personal {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string projectDirectoryPath {
             get {
-                return ((string)(this["personal"]));
+                return ((string)(this["projectDirectoryPath"]));
             }
             set {
-                this["personal"] = value;
+                this["projectDirectoryPath"] = value;
             }
         }
     }

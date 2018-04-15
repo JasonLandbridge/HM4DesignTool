@@ -7,15 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using nucs.JsonSettings;
+using SettingsNamespace;
 
 namespace HM4DesignTool.Forms
 {
     public partial class windowSettings : Form
     {
-        public windowSettings()
+        private windowMain WindowMain;
+        private Settings SettingsObject;
+
+        public windowSettings(windowMain parentWindow)
         {
+            WindowMain = parentWindow;
+            SettingsObject = parentWindow.SettingsObject;
             InitializeComponent();
+            this.restoreSettings();
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -27,6 +37,31 @@ namespace HM4DesignTool.Forms
                 projectDirectoryPathText.Text = folderPath;
             }
 
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            this.saveSettings();
+            this.Hide();
+        }
+
+
+
+
+
+        private void saveSettings()
+        {
+           /// Properties.Personal.Default["projectDirectoryPath"] = projectDirectoryPathText.Text;
+          ////  Properties.Personal.Default.Save(); // Saves settings in application configuration file
+
+            SettingsObject.ProjectDirectoryPath = projectDirectoryPathText.Text;
+            SettingsObject.Save();
+        }
+
+
+        private void restoreSettings()
+        {
+            projectDirectoryPathText.Text = SettingsObject.ProjectDirectoryPath;
         }
     }
 }
