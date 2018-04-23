@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HM4DesignTool.Properties
+namespace Windows.Properties
 {
 
 

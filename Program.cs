@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SettingsNamespace;
 
-namespace HM4DesignTool
+namespace Windows
 {
     static class Program
     {

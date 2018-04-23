@@ -1,4 +1,4 @@
-﻿namespace HM4DesignTool
+﻿namespace Windows
 {
     partial class windowMain
     {
@@ -32,18 +32,20 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.levelListLayout = new System.Windows.Forms.TableLayoutPanel();
             this.levelListGroup = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.levelListDisplay = new System.Windows.Forms.ListBox();
             this.filterGroup = new System.Windows.Forms.GroupBox();
             this.filterLayout = new System.Windows.Forms.TableLayoutPanel();
             this.filterCheckLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.levelListStoryCheck = new System.Windows.Forms.CheckBox();
+            this.levelListBonusCheck = new System.Windows.Forms.CheckBox();
+            this.levelListUnknownCheck = new System.Windows.Forms.CheckBox();
+            this.levelListFilter = new System.Windows.Forms.ComboBox();
             this.levelDataLayout = new System.Windows.Forms.TableLayoutPanel();
             this.levelDataTabs = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
@@ -60,7 +62,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.debugButton = new System.Windows.Forms.Button();
             this.tabLevelGenerating = new System.Windows.Forms.TabPage();
             this.tabPatientChances = new System.Windows.Forms.TabPage();
             this.previewSplitContainer = new System.Windows.Forms.SplitContainer();
@@ -113,7 +114,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.settingsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.viewToolStripMenuItem,
+            this.helpToolStripMenuItem,
+            this.testWindowToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -134,11 +137,24 @@
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // testWindowToolStripMenuItem
+            // 
+            this.testWindowToolStripMenuItem.Name = "testWindowToolStripMenuItem";
+            this.testWindowToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.testWindowToolStripMenuItem.Text = "TestWindow";
+            this.testWindowToolStripMenuItem.Click += new System.EventHandler(this.testWindowToolStripMenuItem_Click);
             // 
             // mainLayout
             // 
@@ -176,7 +192,7 @@
             // 
             // levelListGroup
             // 
-            this.levelListGroup.Controls.Add(this.treeView1);
+            this.levelListGroup.Controls.Add(this.levelListDisplay);
             this.levelListGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.levelListGroup.Location = new System.Drawing.Point(2, 2);
             this.levelListGroup.Margin = new System.Windows.Forms.Padding(0);
@@ -187,14 +203,15 @@
             this.levelListGroup.TabStop = false;
             this.levelListGroup.Text = "Level List";
             // 
-            // treeView1
+            // levelListDisplay
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(2, 15);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(180, 397);
-            this.treeView1.TabIndex = 0;
+            this.levelListDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.levelListDisplay.FormattingEnabled = true;
+            this.levelListDisplay.Location = new System.Drawing.Point(2, 15);
+            this.levelListDisplay.Name = "levelListDisplay";
+            this.levelListDisplay.Size = new System.Drawing.Size(180, 397);
+            this.levelListDisplay.TabIndex = 0;
+            this.levelListDisplay.Click += new System.EventHandler(this.onLevelSelected);
             // 
             // filterGroup
             // 
@@ -214,7 +231,7 @@
             this.filterLayout.ColumnCount = 1;
             this.filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.filterLayout.Controls.Add(this.filterCheckLayout, 0, 1);
-            this.filterLayout.Controls.Add(this.comboBox1, 0, 0);
+            this.filterLayout.Controls.Add(this.levelListFilter, 0, 0);
             this.filterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterLayout.Location = new System.Drawing.Point(0, 13);
             this.filterLayout.Margin = new System.Windows.Forms.Padding(0);
@@ -228,9 +245,9 @@
             // 
             // filterCheckLayout
             // 
-            this.filterCheckLayout.Controls.Add(this.checkBox1);
-            this.filterCheckLayout.Controls.Add(this.checkBox2);
-            this.filterCheckLayout.Controls.Add(this.checkBox3);
+            this.filterCheckLayout.Controls.Add(this.levelListStoryCheck);
+            this.filterCheckLayout.Controls.Add(this.levelListBonusCheck);
+            this.filterCheckLayout.Controls.Add(this.levelListUnknownCheck);
             this.filterCheckLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterCheckLayout.Location = new System.Drawing.Point(0, 32);
             this.filterCheckLayout.Margin = new System.Windows.Forms.Padding(0);
@@ -239,48 +256,57 @@
             this.filterCheckLayout.TabIndex = 0;
             this.filterCheckLayout.WrapContents = false;
             // 
-            // checkBox1
+            // levelListStoryCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(2, 2);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(50, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Story";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.levelListStoryCheck.AutoSize = true;
+            this.levelListStoryCheck.Checked = true;
+            this.levelListStoryCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.levelListStoryCheck.Location = new System.Drawing.Point(2, 2);
+            this.levelListStoryCheck.Margin = new System.Windows.Forms.Padding(2);
+            this.levelListStoryCheck.Name = "levelListStoryCheck";
+            this.levelListStoryCheck.Size = new System.Drawing.Size(50, 17);
+            this.levelListStoryCheck.TabIndex = 0;
+            this.levelListStoryCheck.Text = "Story";
+            this.levelListStoryCheck.UseVisualStyleBackColor = true;
+            this.levelListStoryCheck.CheckedChanged += new System.EventHandler(this.onLevelFilterChange);
             // 
-            // checkBox2
+            // levelListBonusCheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(56, 2);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(56, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Bonus";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.levelListBonusCheck.AutoSize = true;
+            this.levelListBonusCheck.Checked = true;
+            this.levelListBonusCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.levelListBonusCheck.Location = new System.Drawing.Point(56, 2);
+            this.levelListBonusCheck.Margin = new System.Windows.Forms.Padding(2);
+            this.levelListBonusCheck.Name = "levelListBonusCheck";
+            this.levelListBonusCheck.Size = new System.Drawing.Size(56, 17);
+            this.levelListBonusCheck.TabIndex = 1;
+            this.levelListBonusCheck.Text = "Bonus";
+            this.levelListBonusCheck.UseVisualStyleBackColor = true;
+            this.levelListBonusCheck.CheckedChanged += new System.EventHandler(this.onLevelFilterChange);
             // 
-            // checkBox3
+            // levelListUnknownCheck
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(116, 2);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(72, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Unknown";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.levelListUnknownCheck.AutoSize = true;
+            this.levelListUnknownCheck.Location = new System.Drawing.Point(116, 2);
+            this.levelListUnknownCheck.Margin = new System.Windows.Forms.Padding(2);
+            this.levelListUnknownCheck.Name = "levelListUnknownCheck";
+            this.levelListUnknownCheck.Size = new System.Drawing.Size(72, 17);
+            this.levelListUnknownCheck.TabIndex = 2;
+            this.levelListUnknownCheck.Text = "Unknown";
+            this.levelListUnknownCheck.UseVisualStyleBackColor = true;
+            this.levelListUnknownCheck.CheckedChanged += new System.EventHandler(this.onLevelFilterChange);
             // 
-            // comboBox1
+            // levelListFilter
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(2, 2);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 21);
-            this.comboBox1.TabIndex = 1;
+            this.levelListFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.levelListFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.levelListFilter.FormattingEnabled = true;
+            this.levelListFilter.Location = new System.Drawing.Point(2, 2);
+            this.levelListFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.levelListFilter.Name = "levelListFilter";
+            this.levelListFilter.Size = new System.Drawing.Size(176, 21);
+            this.levelListFilter.TabIndex = 1;
+            this.levelListFilter.SelectedValueChanged += new System.EventHandler(this.onLevelFilterChange);
             // 
             // levelDataLayout
             // 
@@ -327,10 +353,9 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.debugButton, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -363,7 +388,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(284, 210);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(363, 210);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
@@ -421,7 +446,7 @@
             this.comboBox2.Location = new System.Drawing.Point(121, 34);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(190, 21);
+            this.comboBox2.Size = new System.Drawing.Size(240, 21);
             this.comboBox2.TabIndex = 4;
             // 
             // comboBox3
@@ -431,7 +456,7 @@
             this.comboBox3.Location = new System.Drawing.Point(121, 98);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(190, 21);
+            this.comboBox3.Size = new System.Drawing.Size(240, 21);
             this.comboBox3.TabIndex = 5;
             // 
             // tableLayoutPanel4
@@ -450,7 +475,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(190, 24);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(240, 24);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // numericUpDown2
@@ -460,7 +485,7 @@
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2.MinimumSize = new System.Drawing.Size(56, 0);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(99, 20);
+            this.numericUpDown2.Size = new System.Drawing.Size(149, 20);
             this.numericUpDown2.TabIndex = 7;
             // 
             // label5
@@ -507,20 +532,10 @@
             this.label6.Location = new System.Drawing.Point(121, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 32);
+            this.label6.Size = new System.Drawing.Size(240, 32);
             this.label6.TabIndex = 7;
             this.label6.Text = "label6";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // debugButton
-            // 
-            this.debugButton.Location = new System.Drawing.Point(291, 3);
-            this.debugButton.Name = "debugButton";
-            this.debugButton.Size = new System.Drawing.Size(75, 23);
-            this.debugButton.TabIndex = 1;
-            this.debugButton.Text = "button1";
-            this.debugButton.UseVisualStyleBackColor = true;
-            this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
             // 
             // tabLevelGenerating
             // 
@@ -572,6 +587,7 @@
             this.currentPreviewTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.currentPreviewTextBox.Multiline = true;
             this.currentPreviewTextBox.Name = "currentPreviewTextBox";
+            this.currentPreviewTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.currentPreviewTextBox.Size = new System.Drawing.Size(273, 233);
             this.currentPreviewTextBox.TabIndex = 0;
             // 
@@ -593,6 +609,7 @@
             this.afterPreviewTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.afterPreviewTextBox.Multiline = true;
             this.afterPreviewTextBox.Name = "afterPreviewTextBox";
+            this.afterPreviewTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.afterPreviewTextBox.Size = new System.Drawing.Size(470, 233);
             this.afterPreviewTextBox.TabIndex = 0;
             // 
@@ -659,14 +676,13 @@
         private System.Windows.Forms.TableLayoutPanel mainLayout;
         private System.Windows.Forms.TableLayoutPanel levelListLayout;
         private System.Windows.Forms.GroupBox levelListGroup;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox filterGroup;
         private System.Windows.Forms.TableLayoutPanel filterLayout;
         private System.Windows.Forms.FlowLayoutPanel filterCheckLayout;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox levelListStoryCheck;
+        private System.Windows.Forms.CheckBox levelListBonusCheck;
+        private System.Windows.Forms.CheckBox levelListUnknownCheck;
+        private System.Windows.Forms.ComboBox levelListFilter;
         private System.Windows.Forms.TableLayoutPanel levelDataLayout;
         private System.Windows.Forms.TabControl levelDataTabs;
         private System.Windows.Forms.TabPage tabGeneral;
@@ -690,7 +706,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button debugButton;
+        private System.Windows.Forms.ListBox levelListDisplay;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testWindowToolStripMenuItem;
     }
 }
 
