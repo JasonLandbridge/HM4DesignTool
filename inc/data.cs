@@ -35,6 +35,9 @@ namespace DataNameSpace
 
     public class Data
     {
+
+        public GameValues gameValue = new GameValues();
+
         private List<String> levelList = new List<String> { };
         private List<String> patientTypeList = new List<String> { };
 
@@ -100,10 +103,10 @@ namespace DataNameSpace
         public List<String> GetFilteredLevels(int roomIndex = 0, bool storyLevels = false, bool bonusLevels = false, bool unknownLevels = false)
         {
             List<String> rawLevelList = GetLevelsFromDisk(false, true);
-            List<String> outputLevelList = new List<String> { }; 
+            List<String> outputLevelList = new List<String> { };
 
 
-            foreach(String level in rawLevelList)
+            foreach (String level in rawLevelList)
             {
 
                 if (storyLevels && level.StartsWith("level"))
@@ -133,7 +136,7 @@ namespace DataNameSpace
                         outputLevelList.Add(level);
                     }
                 }
-                else if(unknownLevels)
+                else if (unknownLevels)
                 {
                     outputLevelList.Add(level);
                 }
@@ -168,7 +171,7 @@ namespace DataNameSpace
                     readContents = streamReader.ReadToEnd();
                     return readContents;
                 }
-                
+
             }
             else
             {
@@ -210,5 +213,166 @@ namespace DataNameSpace
         }
     }
 
+    public class GameValues
+    {
+        // TODO Make sure to import the constant values from GSettings
+        private int difficultyModifierTreatmentsBased = 11;
+        private int startLevelDuration = 110000;
+        private int timeIncreasePerLevel = 4500;
+
+        private int initialTimeBetweenPatients = 11000;
+        private int decreaseTimeBetweenPatients = 250;
+
+        private int initialTimePerTreatment = 6000;
+        private int decreaseTimePerTreatment = 250;
+        private int checkoutPerPatient = 2000;
+        private int treatmentMinimumTime = 1600;
+
+        public GameValues()
+        {
+
+        }
+
+        public Dictionary<String, Double> GetBalancingData(Double difficultyModifier, String difficultyModifierString = "")
+        {
+            Dictionary<String, Double> balancingData = new Dictionary<String, Double> { };
+
+            if (difficultyModifier > 0.5)
+            {
+                balancingData.Add("averageEntryTimePerPatient", AverageEntryTimePerPatient(difficultyModifier));
+                balancingData.Add("timeBetweenPatients", TimeBetweenPatients(difficultyModifier));
+                balancingData.Add("numberOfPatients", NumberOfPatients(difficultyModifier));
+                balancingData.Add("treatmentPerPatient", TreatmentPerPatient(difficultyModifier));
+                balancingData.Add("timePerTreatment", TimePerTreatment(difficultyModifier));
+                balancingData.Add("milliSecondsPerLevel", MilliSecondsPerLevel(difficultyModifier));
+                balancingData.Add("minutesPerLevel", MinutesPerLevel(difficultyModifier));
+
+                return balancingData;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
+        private Double StringToDouble(String difficultyModifier = null)
+        {
+            if (difficultyModifier != null)
+            {
+                return double.Parse(difficultyModifier, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        #region GameValues
+
+        public Double TreatmentPerPatient(Double difficultyModifier)
+        {
+            if (Math.Round(difficultyModifier / difficultyModifierTreatmentsBased, 2) + 1 > 3.5)
+            {
+                return 3.5;
+            }
+            else
+            {
+                return Math.Round(difficultyModifier / difficultyModifierTreatmentsBased, 2) + 1;
+            }
+        }
+
+        public Double TimePerTreatment(Double difficultyModifier)
+        {
+            Double x = initialTimePerTreatment - difficultyModifier * decreaseTimePerTreatment;
+
+            if (x < treatmentMinimumTime)
+            {
+                return treatmentMinimumTime;
+            }
+            else
+            {
+                return x;
+            }
+        }
+
+        public Double MilliSecondsPerLevel(Double difficultyModifier)
+        {
+            Double x = startLevelDuration + difficultyModifier * timeIncreasePerLevel;
+
+            if (x > 400000)
+            {
+                return 400000;
+            }
+            else
+            {
+                return x;
+            }
+        }
+
+        public Double MinutesPerLevel(Double difficultyModifier)
+        {
+            return MilliSecondsPerLevel(difficultyModifier) / 60000;
+
+        }
+
+        public Double TimeBetweenPatients(Double difficultyModifier)
+        {
+            return initialTimeBetweenPatients - difficultyModifier * decreaseTimeBetweenPatients;
+        }
+
+        public Double AverageEntryTimePerPatient(Double difficultyModifier)
+        {
+            Double x = TreatmentPerPatient(difficultyModifier) * TimePerTreatment(difficultyModifier);
+            x += TimeBetweenPatients(difficultyModifier);
+            x += checkoutPerPatient;
+
+            return x;
+        }
+
+        public Double NumberOfPatients(Double difficultyModifier)
+        {
+            Double x = MilliSecondsPerLevel(difficultyModifier) / AverageEntryTimePerPatient(difficultyModifier);
+            return Math.Ceiling(x); //TODO Check if similair to math.ceil in python
+        }
+        #endregion
+
+        #region Overloads
+        public Double TreatmentPerPatient(String difficultyModifier)
+        {
+            return TreatmentPerPatient(StringToDouble(difficultyModifier));
+        }
+        public Double TimePerTreatment(String difficultyModifier)
+        {
+            return TimePerTreatment(StringToDouble(difficultyModifier));
+        }
+        public Double MilliSecondsPerLevel(String difficultyModifier)
+        {
+            return MilliSecondsPerLevel(StringToDouble(difficultyModifier));
+        }
+        public Double MinutesPerLevel(String difficultyModifier)
+        {
+            return MinutesPerLevel(StringToDouble(difficultyModifier));
+        }
+        public Double TimeBetweenPatients(String difficultyModifier)
+        {
+            return TimeBetweenPatients(StringToDouble(difficultyModifier));
+        }
+        public Double AverageEntryTimePerPatient(String difficultyModifier)
+        {
+            return AverageEntryTimePerPatient(StringToDouble(difficultyModifier));
+        }
+        public Double NumberOfPatients(String difficultyModifier)
+        {
+            return NumberOfPatients(StringToDouble(difficultyModifier));
+        }
+
+        #endregion
+
+
+
+
+    }
 
 }
+
