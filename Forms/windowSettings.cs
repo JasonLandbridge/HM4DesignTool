@@ -17,7 +17,7 @@ namespace Windows
     public partial class windowSettings : Form
     {
         private windowMain WindowMain;
-        private Settings SettingsObject;
+        private Settings SettingsObject = Globals.SettingsObject;
 
         //Patient Type Tab
         private int lastLoadedPatientTypeCategoriesIndex = 0;
@@ -69,11 +69,11 @@ namespace Windows
             StoreTreatmentCategory();
             StoreBalancingCategory();
 
-            Globals.SettingsObject.projectPathData = projectDirectoryPathText.Text;
-            Globals.SettingsObject.SetPatientTypes(patientTypeCategoriesDict);
-            Globals.SettingsObject.SetTreatmentCategories(treatmentCategoriesDict);
-            Globals.SettingsObject.SetBalancingCategories(balancingCategoriesDict);
-            Globals.SettingsObject.Save();
+            SettingsObject.projectPathData = projectDirectoryPathText.Text;
+            SettingsObject.SetPatientTypes(patientTypeCategoriesDict);
+            SettingsObject.SetTreatmentCategories(treatmentCategoriesDict);
+            SettingsObject.SetBalancingCategories(balancingCategoriesDict);
+            SettingsObject.Save();
         }
 
 
@@ -352,7 +352,7 @@ namespace Windows
             comboCell.Items.Add("0.0");
             comboCell.Value = comboCell.Items[0];
             String categoryKey = treatmentRoomList.Items[treatmentRoomList.SelectedIndex].ToString();
-            foreach (String difficultyModifier in Globals.SettingsObject.GetDifficultyModifierList(categoryKey))
+            foreach (String difficultyModifier in SettingsObject.GetDifficultyModifierList(categoryKey))
             {
                 comboCell.Items.Add(difficultyModifier);
             }

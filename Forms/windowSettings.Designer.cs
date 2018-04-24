@@ -1302,6 +1302,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(604, 495);
             this.Name = "windowSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
