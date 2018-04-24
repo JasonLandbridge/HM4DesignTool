@@ -697,6 +697,8 @@
             // patientOverviewPanel
             // 
             this.patientOverviewPanel.AutoScroll = true;
+            this.patientOverviewPanel.AutoSize = true;
+            this.patientOverviewPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.patientOverviewPanel.Controls.Add(this.patientOverviewLayout);
             this.patientOverviewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientOverviewPanel.Location = new System.Drawing.Point(0, 40);
@@ -707,6 +709,8 @@
             // 
             // patientOverviewLayout
             // 
+            this.patientOverviewLayout.AutoSize = true;
+            this.patientOverviewLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.patientOverviewLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.patientOverviewLayout.ColumnCount = 9;
             this.patientOverviewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -726,13 +730,12 @@
             this.patientOverviewLayout.Controls.Add(this.patientRowTreatmentLayout, 6, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowTreatmentButton, 7, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowTraits, 8, 0);
-            this.patientOverviewLayout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientOverviewLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientOverviewLayout.Location = new System.Drawing.Point(0, 0);
             this.patientOverviewLayout.Name = "patientOverviewLayout";
-            this.patientOverviewLayout.RowCount = 2;
-            this.patientOverviewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.patientOverviewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.patientOverviewLayout.Size = new System.Drawing.Size(1035, 416);
+            this.patientOverviewLayout.RowCount = 1;
+            this.patientOverviewLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.patientOverviewLayout.Size = new System.Drawing.Size(1052, 382);
             this.patientOverviewLayout.TabIndex = 2;
             // 
             // patientRowSelect
@@ -742,7 +745,7 @@
             this.patientRowSelect.Location = new System.Drawing.Point(4, 4);
             this.patientRowSelect.MaximumSize = new System.Drawing.Size(0, 25);
             this.patientRowSelect.Name = "patientRowSelect";
-            this.patientRowSelect.Size = new System.Drawing.Size(15, 24);
+            this.patientRowSelect.Size = new System.Drawing.Size(15, 25);
             this.patientRowSelect.TabIndex = 1;
             this.patientRowSelect.UseVisualStyleBackColor = true;
             // 
@@ -853,7 +856,7 @@
             this.patientRowTreatmentLayout.Location = new System.Drawing.Point(539, 4);
             this.patientRowTreatmentLayout.MaximumSize = new System.Drawing.Size(0, 60);
             this.patientRowTreatmentLayout.Name = "patientRowTreatmentLayout";
-            this.patientRowTreatmentLayout.Size = new System.Drawing.Size(328, 24);
+            this.patientRowTreatmentLayout.Size = new System.Drawing.Size(345, 60);
             this.patientRowTreatmentLayout.TabIndex = 9;
             // 
             // patientRowTreatment1
@@ -890,7 +893,7 @@
             // 
             // patientRowTreatmentButton
             // 
-            this.patientRowTreatmentButton.Location = new System.Drawing.Point(874, 4);
+            this.patientRowTreatmentButton.Location = new System.Drawing.Point(891, 4);
             this.patientRowTreatmentButton.Name = "patientRowTreatmentButton";
             this.patientRowTreatmentButton.Size = new System.Drawing.Size(75, 23);
             this.patientRowTreatmentButton.TabIndex = 10;
@@ -899,7 +902,7 @@
             // 
             // patientRowTraits
             // 
-            this.patientRowTraits.Location = new System.Drawing.Point(956, 4);
+            this.patientRowTraits.Location = new System.Drawing.Point(973, 4);
             this.patientRowTraits.Name = "patientRowTraits";
             this.patientRowTraits.Size = new System.Drawing.Size(75, 23);
             this.patientRowTraits.TabIndex = 11;
@@ -1064,9 +1067,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPatientOverview.ResumeLayout(false);
             this.patientOverviewMainLayout.ResumeLayout(false);
+            this.patientOverviewMainLayout.PerformLayout();
             this.patientOverviewHeaderLayout.ResumeLayout(false);
             this.patientOverviewHeaderLayout.PerformLayout();
             this.patientOverviewPanel.ResumeLayout(false);
+            this.patientOverviewPanel.PerformLayout();
             this.patientOverviewLayout.ResumeLayout(false);
             this.patientOverviewLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientRowDelay)).EndInit();

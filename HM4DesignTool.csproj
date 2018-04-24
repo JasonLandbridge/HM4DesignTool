@@ -125,12 +125,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Global.cs" />
-    <Compile Include="Properties\Personal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Personal.settings</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -142,22 +136,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\Personal.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Personal.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Properties\Global.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Global.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Compile Include="Properties\Global.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Global.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
