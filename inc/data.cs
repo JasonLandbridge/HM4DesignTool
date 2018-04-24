@@ -28,15 +28,29 @@ namespace DataNameSpace
     {
         public static Settings SettingsObject = new Settings();
         public static Data DataObject = new Data();
+        public static GameValues GameValue = new GameValues();
+
         public static windowMain windowMainObject;
         public static List<String> roomCategories = new List<String> { "Room 1", "Room 2", "Room 3", "Room 4", "Room 5", "Room 6" };
+
+        public static Double StringToDouble(String difficultyModifier = null)
+        {
+            if (difficultyModifier != null)
+            {
+                return double.Parse(difficultyModifier, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
 
     }
 
     public class Data
     {
 
-        public GameValues gameValue = new GameValues();
 
         private List<String> levelList = new List<String> { };
         private List<String> patientTypeList = new List<String> { };
@@ -216,24 +230,24 @@ namespace DataNameSpace
     public class GameValues
     {
         // TODO Make sure to import the constant values from GSettings
-        private int difficultyModifierTreatmentsBased = 11;
-        private int startLevelDuration = 110000;
-        private int timeIncreasePerLevel = 4500;
+        public int difficultyModifierTreatmentsBased = 11;
+        public int startLevelDuration = 110000;
+        public int timeIncreasePerLevel = 4500;
 
-        private int initialTimeBetweenPatients = 11000;
-        private int decreaseTimeBetweenPatients = 250;
+        public int initialTimeBetweenPatients = 11000;
+        public int decreaseTimeBetweenPatients = 250;
 
-        private int initialTimePerTreatment = 6000;
-        private int decreaseTimePerTreatment = 250;
-        private int checkoutPerPatient = 2000;
-        private int treatmentMinimumTime = 1600;
+        public int initialTimePerTreatment = 6000;
+        public int decreaseTimePerTreatment = 250;
+        public int checkoutPerPatient = 2000;
+        public int treatmentMinimumTime = 1600;
 
         public GameValues()
         {
 
         }
 
-        public Dictionary<String, Double> GetBalancingData(Double difficultyModifier, String difficultyModifierString = "")
+        public Dictionary<String, Double> GetBalancingData(Double difficultyModifier)
         {
             Dictionary<String, Double> balancingData = new Dictionary<String, Double> { };
 
@@ -256,17 +270,6 @@ namespace DataNameSpace
 
         }
 
-        private Double StringToDouble(String difficultyModifier = null)
-        {
-            if (difficultyModifier != null)
-            {
-                return double.Parse(difficultyModifier, System.Globalization.CultureInfo.InvariantCulture);
-            }
-            else
-            {
-                return 0;
-            }
-        }
 
         #region GameValues
 
@@ -338,33 +341,37 @@ namespace DataNameSpace
         #endregion
 
         #region Overloads
+        public Dictionary<String, Double> GetBalancingData(String difficultyModifier)
+        {
+            return GetBalancingData(Globals.StringToDouble(difficultyModifier));
+        }
         public Double TreatmentPerPatient(String difficultyModifier)
         {
-            return TreatmentPerPatient(StringToDouble(difficultyModifier));
+            return TreatmentPerPatient(Globals.StringToDouble(difficultyModifier));
         }
         public Double TimePerTreatment(String difficultyModifier)
         {
-            return TimePerTreatment(StringToDouble(difficultyModifier));
+            return TimePerTreatment(Globals.StringToDouble(difficultyModifier));
         }
         public Double MilliSecondsPerLevel(String difficultyModifier)
         {
-            return MilliSecondsPerLevel(StringToDouble(difficultyModifier));
+            return MilliSecondsPerLevel(Globals.StringToDouble(difficultyModifier));
         }
         public Double MinutesPerLevel(String difficultyModifier)
         {
-            return MinutesPerLevel(StringToDouble(difficultyModifier));
+            return MinutesPerLevel(Globals.StringToDouble(difficultyModifier));
         }
         public Double TimeBetweenPatients(String difficultyModifier)
         {
-            return TimeBetweenPatients(StringToDouble(difficultyModifier));
+            return TimeBetweenPatients(Globals.StringToDouble(difficultyModifier));
         }
         public Double AverageEntryTimePerPatient(String difficultyModifier)
         {
-            return AverageEntryTimePerPatient(StringToDouble(difficultyModifier));
+            return AverageEntryTimePerPatient(Globals.StringToDouble(difficultyModifier));
         }
         public Double NumberOfPatients(String difficultyModifier)
         {
-            return NumberOfPatients(StringToDouble(difficultyModifier));
+            return NumberOfPatients(Globals.StringToDouble(difficultyModifier));
         }
 
         #endregion

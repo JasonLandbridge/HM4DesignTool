@@ -60,36 +60,36 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.treatmentDataGridView = new System.Windows.Forms.DataGridView();
             this.treatmentSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.treatmentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.treatmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.difficultyUnlocked = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.heartsValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gesture = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.alwaysLast = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colorButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colorValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.treatmentRowButtonAdd = new System.Windows.Forms.Button();
+            this.treatmentRowButtonRemove = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.minutesPerLevelValue = new System.Windows.Forms.TextBox();
+            this.milliSecondsPerLevelValue = new System.Windows.Forms.TextBox();
+            this.timePerTreatmentValue = new System.Windows.Forms.TextBox();
+            this.treatmentPerPatientValue = new System.Windows.Forms.TextBox();
+            this.minutesPerLevelLabel = new System.Windows.Forms.Label();
+            this.milliSecondsPerLevelLabel = new System.Windows.Forms.Label();
+            this.timePerTreatmentLabel = new System.Windows.Forms.Label();
+            this.treatmentPerPatientLabel = new System.Windows.Forms.Label();
+            this.numberOfPatientsLabel = new System.Windows.Forms.Label();
+            this.numberOfPatientsValue = new System.Windows.Forms.TextBox();
+            this.timeBetweenPatientsValue = new System.Windows.Forms.TextBox();
+            this.averageEntryTimePerPatientLabel = new System.Windows.Forms.Label();
+            this.timeBetweenPatientsLabel = new System.Windows.Forms.Label();
+            this.averageEntryTimePerPatientValue = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.balancingRoomList = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -101,24 +101,24 @@
             this.diffModifierValue = new System.Windows.Forms.NumericUpDown();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.difficultyModifierTreatmentsBasedLabel = new System.Windows.Forms.Label();
+            this.difficultyModifierTreatmentsBasedValue = new System.Windows.Forms.TextBox();
+            this.startLevelDurationLabel = new System.Windows.Forms.Label();
+            this.startLevelDurationValue = new System.Windows.Forms.TextBox();
+            this.timeIncreasePerLevelLabel = new System.Windows.Forms.Label();
+            this.timeIncreasePerLevelValue = new System.Windows.Forms.TextBox();
+            this.initialTimePerTreatmentLabel = new System.Windows.Forms.Label();
+            this.decreaseTimePerTreatmentLabel = new System.Windows.Forms.Label();
+            this.decreaseTimePerTreatmentValue = new System.Windows.Forms.TextBox();
+            this.initialTimePerTreatmentValue = new System.Windows.Forms.TextBox();
+            this.decreaseTimeBetweenPatientsValue = new System.Windows.Forms.TextBox();
+            this.initialTimeBetweenPatientsValue = new System.Windows.Forms.TextBox();
+            this.decreaseTimeBetweenPatientsLabel = new System.Windows.Forms.Label();
+            this.initialTimeBetweenPatientsLabel = new System.Windows.Forms.Label();
+            this.checkoutPerPatientValue = new System.Windows.Forms.TextBox();
+            this.treatmentMinimumTimeValue = new System.Windows.Forms.TextBox();
+            this.checkoutPerPatientLabel = new System.Windows.Forms.Label();
+            this.treatmentMinimumTimelabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -366,7 +366,7 @@
             this.patientTypeRoomList.Name = "patientTypeRoomList";
             this.patientTypeRoomList.Size = new System.Drawing.Size(138, 631);
             this.patientTypeRoomList.TabIndex = 0;
-            this.patientTypeRoomList.SelectedValueChanged += new System.EventHandler(this.onPatientTypeCategorySelected);
+            this.patientTypeRoomList.SelectedValueChanged += new System.EventHandler(this.OnPatientTypeCategorySelected);
             // 
             // PatientTypeChoicesGroup
             // 
@@ -521,6 +521,7 @@
             this.treatmentRoomList.Name = "treatmentRoomList";
             this.treatmentRoomList.Size = new System.Drawing.Size(138, 629);
             this.treatmentRoomList.TabIndex = 0;
+            this.treatmentRoomList.Click += new System.EventHandler(this.OnTreatmentCategorySelected);
             // 
             // tableLayoutPanel8
             // 
@@ -540,21 +541,25 @@
             // 
             // treatmentDataGridView
             // 
+            this.treatmentDataGridView.AllowUserToAddRows = false;
+            this.treatmentDataGridView.AllowUserToDeleteRows = false;
+            this.treatmentDataGridView.AllowUserToOrderColumns = true;
             this.treatmentDataGridView.AllowUserToResizeRows = false;
             this.treatmentDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.treatmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.treatmentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.treatmentSelect,
-            this.treatmentType,
+            this.treatmentName,
             this.difficultyUnlocked,
             this.heartsValue,
             this.weight,
             this.weightPercentage,
             this.gesture,
             this.alwaysLast,
-            this.color,
+            this.colorButton,
             this.colorValue});
             this.treatmentDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatmentDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.treatmentDataGridView.Location = new System.Drawing.Point(3, 3);
             this.treatmentDataGridView.MultiSelect = false;
             this.treatmentDataGridView.Name = "treatmentDataGridView";
@@ -562,6 +567,7 @@
             this.treatmentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.treatmentDataGridView.Size = new System.Drawing.Size(827, 602);
             this.treatmentDataGridView.TabIndex = 2;
+            this.treatmentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.treatmentDataGridView_CellContentClick);
             // 
             // treatmentSelect
             // 
@@ -569,11 +575,11 @@
             this.treatmentSelect.Name = "treatmentSelect";
             this.treatmentSelect.Width = 30;
             // 
-            // treatmentType
+            // treatmentName
             // 
-            this.treatmentType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.treatmentType.HeaderText = "TreatmentType";
-            this.treatmentType.Name = "treatmentType";
+            this.treatmentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.treatmentName.HeaderText = "Treatment Name";
+            this.treatmentName.Name = "treatmentName";
             // 
             // difficultyUnlocked
             // 
@@ -612,10 +618,10 @@
             this.alwaysLast.Name = "alwaysLast";
             this.alwaysLast.Width = 69;
             // 
-            // color
+            // colorButton
             // 
-            this.color.HeaderText = "Color";
-            this.color.Name = "color";
+            this.colorButton.HeaderText = "Color";
+            this.colorButton.Name = "colorButton";
             // 
             // colorValue
             // 
@@ -625,32 +631,33 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Controls.Add(this.button2);
+            this.flowLayoutPanel2.Controls.Add(this.treatmentRowButtonAdd);
+            this.flowLayoutPanel2.Controls.Add(this.treatmentRowButtonRemove);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 611);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(827, 34);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
-            // button1
+            // treatmentRowButtonAdd
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.treatmentRowButtonAdd.Location = new System.Drawing.Point(3, 3);
+            this.treatmentRowButtonAdd.Name = "treatmentRowButtonAdd";
+            this.treatmentRowButtonAdd.Size = new System.Drawing.Size(75, 23);
+            this.treatmentRowButtonAdd.TabIndex = 0;
+            this.treatmentRowButtonAdd.Text = "Add";
+            this.treatmentRowButtonAdd.UseVisualStyleBackColor = true;
+            this.treatmentRowButtonAdd.Click += new System.EventHandler(this.TreatmentRowButtonAdd_Click);
             // 
-            // button2
+            // treatmentRowButtonRemove
             // 
-            this.button2.Location = new System.Drawing.Point(84, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = true;
+            this.treatmentRowButtonRemove.Location = new System.Drawing.Point(84, 3);
+            this.treatmentRowButtonRemove.Name = "treatmentRowButtonRemove";
+            this.treatmentRowButtonRemove.Size = new System.Drawing.Size(75, 23);
+            this.treatmentRowButtonRemove.TabIndex = 1;
+            this.treatmentRowButtonRemove.Text = "Remove";
+            this.treatmentRowButtonRemove.UseVisualStyleBackColor = true;
+            this.treatmentRowButtonRemove.Click += new System.EventHandler(this.TreatmentRowButtonRemove_Click);
             // 
             // tabPage4
             // 
@@ -698,20 +705,20 @@
             this.tableLayoutPanel11.ColumnCount = 2;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.76471F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.23529F));
-            this.tableLayoutPanel11.Controls.Add(this.textBox7, 1, 6);
-            this.tableLayoutPanel11.Controls.Add(this.textBox6, 1, 5);
-            this.tableLayoutPanel11.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel11.Controls.Add(this.textBox3, 1, 3);
-            this.tableLayoutPanel11.Controls.Add(this.label10, 0, 6);
-            this.tableLayoutPanel11.Controls.Add(this.label8, 0, 5);
-            this.tableLayoutPanel11.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel11.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel11.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel11.Controls.Add(this.textBox4, 1, 2);
-            this.tableLayoutPanel11.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel11.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel11.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.minutesPerLevelValue, 1, 6);
+            this.tableLayoutPanel11.Controls.Add(this.milliSecondsPerLevelValue, 1, 5);
+            this.tableLayoutPanel11.Controls.Add(this.timePerTreatmentValue, 1, 4);
+            this.tableLayoutPanel11.Controls.Add(this.treatmentPerPatientValue, 1, 3);
+            this.tableLayoutPanel11.Controls.Add(this.minutesPerLevelLabel, 0, 6);
+            this.tableLayoutPanel11.Controls.Add(this.milliSecondsPerLevelLabel, 0, 5);
+            this.tableLayoutPanel11.Controls.Add(this.timePerTreatmentLabel, 0, 4);
+            this.tableLayoutPanel11.Controls.Add(this.treatmentPerPatientLabel, 0, 3);
+            this.tableLayoutPanel11.Controls.Add(this.numberOfPatientsLabel, 0, 2);
+            this.tableLayoutPanel11.Controls.Add(this.numberOfPatientsValue, 1, 2);
+            this.tableLayoutPanel11.Controls.Add(this.timeBetweenPatientsValue, 1, 1);
+            this.tableLayoutPanel11.Controls.Add(this.averageEntryTimePerPatientLabel, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.timeBetweenPatientsLabel, 0, 1);
+            this.tableLayoutPanel11.Controls.Add(this.averageEntryTimePerPatientValue, 1, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -729,153 +736,153 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(286, 629);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
-            // textBox7
+            // minutesPerLevelValue
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(179, 276);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(104, 20);
-            this.textBox7.TabIndex = 17;
+            this.minutesPerLevelValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.minutesPerLevelValue.Location = new System.Drawing.Point(179, 276);
+            this.minutesPerLevelValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.minutesPerLevelValue.Name = "minutesPerLevelValue";
+            this.minutesPerLevelValue.ReadOnly = true;
+            this.minutesPerLevelValue.Size = new System.Drawing.Size(104, 20);
+            this.minutesPerLevelValue.TabIndex = 17;
             // 
-            // textBox6
+            // milliSecondsPerLevelValue
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(179, 232);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(104, 20);
-            this.textBox6.TabIndex = 16;
+            this.milliSecondsPerLevelValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.milliSecondsPerLevelValue.Location = new System.Drawing.Point(179, 232);
+            this.milliSecondsPerLevelValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.milliSecondsPerLevelValue.Name = "milliSecondsPerLevelValue";
+            this.milliSecondsPerLevelValue.ReadOnly = true;
+            this.milliSecondsPerLevelValue.Size = new System.Drawing.Size(104, 20);
+            this.milliSecondsPerLevelValue.TabIndex = 16;
             // 
-            // textBox5
+            // timePerTreatmentValue
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(179, 188);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(104, 20);
-            this.textBox5.TabIndex = 15;
+            this.timePerTreatmentValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timePerTreatmentValue.Location = new System.Drawing.Point(179, 188);
+            this.timePerTreatmentValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.timePerTreatmentValue.Name = "timePerTreatmentValue";
+            this.timePerTreatmentValue.ReadOnly = true;
+            this.timePerTreatmentValue.Size = new System.Drawing.Size(104, 20);
+            this.timePerTreatmentValue.TabIndex = 15;
             // 
-            // textBox3
+            // treatmentPerPatientValue
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(179, 144);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(104, 20);
-            this.textBox3.TabIndex = 14;
+            this.treatmentPerPatientValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatmentPerPatientValue.Location = new System.Drawing.Point(179, 144);
+            this.treatmentPerPatientValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.treatmentPerPatientValue.Name = "treatmentPerPatientValue";
+            this.treatmentPerPatientValue.ReadOnly = true;
+            this.treatmentPerPatientValue.Size = new System.Drawing.Size(104, 20);
+            this.treatmentPerPatientValue.TabIndex = 14;
             // 
-            // label10
+            // minutesPerLevelLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(3, 264);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(170, 44);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Minutes per Level";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.minutesPerLevelLabel.AutoSize = true;
+            this.minutesPerLevelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.minutesPerLevelLabel.Location = new System.Drawing.Point(3, 264);
+            this.minutesPerLevelLabel.Name = "minutesPerLevelLabel";
+            this.minutesPerLevelLabel.Size = new System.Drawing.Size(170, 44);
+            this.minutesPerLevelLabel.TabIndex = 13;
+            this.minutesPerLevelLabel.Text = "Minutes per Level";
+            this.minutesPerLevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // milliSecondsPerLevelLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(3, 220);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(170, 44);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Milisecond per Level";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.milliSecondsPerLevelLabel.AutoSize = true;
+            this.milliSecondsPerLevelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.milliSecondsPerLevelLabel.Location = new System.Drawing.Point(3, 220);
+            this.milliSecondsPerLevelLabel.Name = "milliSecondsPerLevelLabel";
+            this.milliSecondsPerLevelLabel.Size = new System.Drawing.Size(170, 44);
+            this.milliSecondsPerLevelLabel.TabIndex = 11;
+            this.milliSecondsPerLevelLabel.Text = "Milisecond per Level";
+            this.milliSecondsPerLevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // timePerTreatmentLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(3, 176);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 44);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Time per Treatment";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.timePerTreatmentLabel.AutoSize = true;
+            this.timePerTreatmentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timePerTreatmentLabel.Location = new System.Drawing.Point(3, 176);
+            this.timePerTreatmentLabel.Name = "timePerTreatmentLabel";
+            this.timePerTreatmentLabel.Size = new System.Drawing.Size(170, 44);
+            this.timePerTreatmentLabel.TabIndex = 9;
+            this.timePerTreatmentLabel.Text = "Time per Treatment";
+            this.timePerTreatmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timePerTreatmentLabel.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label4
+            // treatmentPerPatientLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 132);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 44);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Treatment Per Patient";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.treatmentPerPatientLabel.AutoSize = true;
+            this.treatmentPerPatientLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatmentPerPatientLabel.Location = new System.Drawing.Point(3, 132);
+            this.treatmentPerPatientLabel.Name = "treatmentPerPatientLabel";
+            this.treatmentPerPatientLabel.Size = new System.Drawing.Size(170, 44);
+            this.treatmentPerPatientLabel.TabIndex = 7;
+            this.treatmentPerPatientLabel.Text = "Treatment Per Patient";
+            this.treatmentPerPatientLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // numberOfPatientsLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 44);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Number of Patients";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.numberOfPatientsLabel.AutoSize = true;
+            this.numberOfPatientsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numberOfPatientsLabel.Location = new System.Drawing.Point(3, 88);
+            this.numberOfPatientsLabel.Name = "numberOfPatientsLabel";
+            this.numberOfPatientsLabel.Size = new System.Drawing.Size(170, 44);
+            this.numberOfPatientsLabel.TabIndex = 6;
+            this.numberOfPatientsLabel.Text = "Number of Patients";
+            this.numberOfPatientsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox4
+            // numberOfPatientsValue
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(179, 100);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(104, 20);
-            this.textBox4.TabIndex = 5;
+            this.numberOfPatientsValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numberOfPatientsValue.Location = new System.Drawing.Point(179, 100);
+            this.numberOfPatientsValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.numberOfPatientsValue.Name = "numberOfPatientsValue";
+            this.numberOfPatientsValue.ReadOnly = true;
+            this.numberOfPatientsValue.Size = new System.Drawing.Size(104, 20);
+            this.numberOfPatientsValue.TabIndex = 5;
             // 
-            // textBox2
+            // timeBetweenPatientsValue
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(179, 56);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(104, 20);
-            this.textBox2.TabIndex = 3;
+            this.timeBetweenPatientsValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeBetweenPatientsValue.Location = new System.Drawing.Point(179, 56);
+            this.timeBetweenPatientsValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.timeBetweenPatientsValue.Name = "timeBetweenPatientsValue";
+            this.timeBetweenPatientsValue.ReadOnly = true;
+            this.timeBetweenPatientsValue.Size = new System.Drawing.Size(104, 20);
+            this.timeBetweenPatientsValue.TabIndex = 3;
             // 
-            // label1
+            // averageEntryTimePerPatientLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 44);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Average Entry Time Per Patient";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.averageEntryTimePerPatientLabel.AutoSize = true;
+            this.averageEntryTimePerPatientLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.averageEntryTimePerPatientLabel.Location = new System.Drawing.Point(3, 0);
+            this.averageEntryTimePerPatientLabel.Name = "averageEntryTimePerPatientLabel";
+            this.averageEntryTimePerPatientLabel.Size = new System.Drawing.Size(170, 44);
+            this.averageEntryTimePerPatientLabel.TabIndex = 0;
+            this.averageEntryTimePerPatientLabel.Text = "Average Entry Time Per Patient";
+            this.averageEntryTimePerPatientLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // timeBetweenPatientsLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 44);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Time Between Patients";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timeBetweenPatientsLabel.AutoSize = true;
+            this.timeBetweenPatientsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeBetweenPatientsLabel.Location = new System.Drawing.Point(3, 44);
+            this.timeBetweenPatientsLabel.Name = "timeBetweenPatientsLabel";
+            this.timeBetweenPatientsLabel.Size = new System.Drawing.Size(170, 44);
+            this.timeBetweenPatientsLabel.TabIndex = 1;
+            this.timeBetweenPatientsLabel.Text = "Time Between Patients";
+            this.timeBetweenPatientsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // averageEntryTimePerPatientValue
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(179, 12);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(104, 20);
-            this.textBox1.TabIndex = 2;
+            this.averageEntryTimePerPatientValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.averageEntryTimePerPatientValue.Location = new System.Drawing.Point(179, 12);
+            this.averageEntryTimePerPatientValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.averageEntryTimePerPatientValue.Name = "averageEntryTimePerPatientValue";
+            this.averageEntryTimePerPatientValue.ReadOnly = true;
+            this.averageEntryTimePerPatientValue.Size = new System.Drawing.Size(104, 20);
+            this.averageEntryTimePerPatientValue.TabIndex = 2;
             // 
             // groupBox3
             // 
@@ -896,7 +903,7 @@
             this.balancingRoomList.Name = "balancingRoomList";
             this.balancingRoomList.Size = new System.Drawing.Size(138, 629);
             this.balancingRoomList.TabIndex = 0;
-            this.balancingRoomList.Click += new System.EventHandler(this.onBalancingCategorySelected);
+            this.balancingRoomList.Click += new System.EventHandler(this.OnBalancingCategorySelected);
             // 
             // groupBox4
             // 
@@ -920,7 +927,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.Size = new System.Drawing.Size(238, 629);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
@@ -930,14 +937,14 @@
             this.difficultyModifierList.FormattingEnabled = true;
             this.difficultyModifierList.Location = new System.Drawing.Point(3, 3);
             this.difficultyModifierList.Name = "difficultyModifierList";
-            this.difficultyModifierList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.difficultyModifierList.Size = new System.Drawing.Size(232, 583);
             this.difficultyModifierList.TabIndex = 0;
+            this.difficultyModifierList.SelectedIndexChanged += new System.EventHandler(this.OnDifficultyModifierSelected);
             // 
             // tableLayoutPanel13
             // 
             this.tableLayoutPanel13.ColumnCount = 3;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel13.Controls.Add(this.buttonAddDiffModifier, 0, 0);
@@ -947,7 +954,7 @@
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 592);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(232, 34);
             this.tableLayoutPanel13.TabIndex = 1;
             // 
@@ -955,28 +962,29 @@
             // 
             this.buttonAddDiffModifier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonAddDiffModifier.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddDiffModifier.MaximumSize = new System.Drawing.Size(0, 20);
             this.buttonAddDiffModifier.Name = "buttonAddDiffModifier";
-            this.buttonAddDiffModifier.Size = new System.Drawing.Size(71, 28);
+            this.buttonAddDiffModifier.Size = new System.Drawing.Size(71, 20);
             this.buttonAddDiffModifier.TabIndex = 0;
             this.buttonAddDiffModifier.Text = "Add";
             this.buttonAddDiffModifier.UseVisualStyleBackColor = true;
-            this.buttonAddDiffModifier.Click += new System.EventHandler(this.buttonAddDiffModifier_Click);
+            this.buttonAddDiffModifier.Click += new System.EventHandler(this.ButtonAddDiffModifier_Click);
             // 
             // buttonRemoveDiffModifier
             // 
             this.buttonRemoveDiffModifier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRemoveDiffModifier.Location = new System.Drawing.Point(80, 3);
+            this.buttonRemoveDiffModifier.MaximumSize = new System.Drawing.Size(0, 20);
             this.buttonRemoveDiffModifier.Name = "buttonRemoveDiffModifier";
-            this.buttonRemoveDiffModifier.Size = new System.Drawing.Size(71, 28);
+            this.buttonRemoveDiffModifier.Size = new System.Drawing.Size(71, 20);
             this.buttonRemoveDiffModifier.TabIndex = 1;
             this.buttonRemoveDiffModifier.Text = "Remove";
             this.buttonRemoveDiffModifier.UseVisualStyleBackColor = true;
-            this.buttonRemoveDiffModifier.Click += new System.EventHandler(this.buttonRemoveDiffModifier_Click);
+            this.buttonRemoveDiffModifier.Click += new System.EventHandler(this.ButtonRemoveDiffModifier_Click);
             // 
             // diffModifierValue
             // 
             this.diffModifierValue.DecimalPlaces = 1;
-            this.diffModifierValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.diffModifierValue.Increment = new decimal(new int[] {
             5,
             0,
@@ -1003,24 +1011,24 @@
             this.tableLayoutPanel12.ColumnCount = 2;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.76471F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.23529F));
-            this.tableLayoutPanel12.Controls.Add(this.textBox8, 1, 6);
-            this.tableLayoutPanel12.Controls.Add(this.textBox9, 1, 5);
-            this.tableLayoutPanel12.Controls.Add(this.textBox10, 1, 4);
-            this.tableLayoutPanel12.Controls.Add(this.textBox11, 1, 3);
-            this.tableLayoutPanel12.Controls.Add(this.label5, 0, 6);
-            this.tableLayoutPanel12.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel12.Controls.Add(this.label9, 0, 4);
-            this.tableLayoutPanel12.Controls.Add(this.label11, 0, 3);
-            this.tableLayoutPanel12.Controls.Add(this.label12, 0, 2);
-            this.tableLayoutPanel12.Controls.Add(this.textBox12, 1, 2);
-            this.tableLayoutPanel12.Controls.Add(this.textBox13, 1, 1);
-            this.tableLayoutPanel12.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel12.Controls.Add(this.label14, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.textBox14, 1, 0);
-            this.tableLayoutPanel12.Controls.Add(this.textBox19, 1, 8);
-            this.tableLayoutPanel12.Controls.Add(this.textBox20, 1, 9);
-            this.tableLayoutPanel12.Controls.Add(this.label15, 0, 8);
-            this.tableLayoutPanel12.Controls.Add(this.label16, 0, 9);
+            this.tableLayoutPanel12.Controls.Add(this.difficultyModifierTreatmentsBasedLabel, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.difficultyModifierTreatmentsBasedValue, 1, 0);
+            this.tableLayoutPanel12.Controls.Add(this.startLevelDurationLabel, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.startLevelDurationValue, 1, 1);
+            this.tableLayoutPanel12.Controls.Add(this.timeIncreasePerLevelLabel, 0, 2);
+            this.tableLayoutPanel12.Controls.Add(this.timeIncreasePerLevelValue, 1, 2);
+            this.tableLayoutPanel12.Controls.Add(this.initialTimePerTreatmentLabel, 0, 5);
+            this.tableLayoutPanel12.Controls.Add(this.decreaseTimePerTreatmentLabel, 0, 6);
+            this.tableLayoutPanel12.Controls.Add(this.decreaseTimePerTreatmentValue, 1, 6);
+            this.tableLayoutPanel12.Controls.Add(this.initialTimePerTreatmentValue, 1, 5);
+            this.tableLayoutPanel12.Controls.Add(this.decreaseTimeBetweenPatientsValue, 1, 4);
+            this.tableLayoutPanel12.Controls.Add(this.initialTimeBetweenPatientsValue, 1, 3);
+            this.tableLayoutPanel12.Controls.Add(this.decreaseTimeBetweenPatientsLabel, 0, 4);
+            this.tableLayoutPanel12.Controls.Add(this.initialTimeBetweenPatientsLabel, 0, 3);
+            this.tableLayoutPanel12.Controls.Add(this.checkoutPerPatientValue, 1, 8);
+            this.tableLayoutPanel12.Controls.Add(this.treatmentMinimumTimeValue, 1, 9);
+            this.tableLayoutPanel12.Controls.Add(this.checkoutPerPatientLabel, 0, 8);
+            this.tableLayoutPanel12.Controls.Add(this.treatmentMinimumTimelabel, 0, 9);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -1042,193 +1050,193 @@
             this.tableLayoutPanel12.TabIndex = 1;
             this.tableLayoutPanel12.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel12_Paint);
             // 
-            // textBox8
+            // difficultyModifierTreatmentsBasedLabel
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(175, 276);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(101, 20);
-            this.textBox8.TabIndex = 17;
+            this.difficultyModifierTreatmentsBasedLabel.AutoSize = true;
+            this.difficultyModifierTreatmentsBasedLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.difficultyModifierTreatmentsBasedLabel.Location = new System.Drawing.Point(3, 0);
+            this.difficultyModifierTreatmentsBasedLabel.Name = "difficultyModifierTreatmentsBasedLabel";
+            this.difficultyModifierTreatmentsBasedLabel.Size = new System.Drawing.Size(166, 44);
+            this.difficultyModifierTreatmentsBasedLabel.TabIndex = 0;
+            this.difficultyModifierTreatmentsBasedLabel.Text = "DifficultyModifier Treatments Based";
+            this.difficultyModifierTreatmentsBasedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.difficultyModifierTreatmentsBasedLabel.Click += new System.EventHandler(this.label13_Click);
             // 
-            // textBox9
+            // difficultyModifierTreatmentsBasedValue
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(175, 232);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(101, 20);
-            this.textBox9.TabIndex = 16;
+            this.difficultyModifierTreatmentsBasedValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.difficultyModifierTreatmentsBasedValue.Location = new System.Drawing.Point(175, 12);
+            this.difficultyModifierTreatmentsBasedValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.difficultyModifierTreatmentsBasedValue.Name = "difficultyModifierTreatmentsBasedValue";
+            this.difficultyModifierTreatmentsBasedValue.ReadOnly = true;
+            this.difficultyModifierTreatmentsBasedValue.Size = new System.Drawing.Size(101, 20);
+            this.difficultyModifierTreatmentsBasedValue.TabIndex = 2;
             // 
-            // textBox10
+            // startLevelDurationLabel
             // 
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Location = new System.Drawing.Point(175, 188);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(101, 20);
-            this.textBox10.TabIndex = 15;
+            this.startLevelDurationLabel.AutoSize = true;
+            this.startLevelDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startLevelDurationLabel.Location = new System.Drawing.Point(3, 44);
+            this.startLevelDurationLabel.Name = "startLevelDurationLabel";
+            this.startLevelDurationLabel.Size = new System.Drawing.Size(166, 44);
+            this.startLevelDurationLabel.TabIndex = 1;
+            this.startLevelDurationLabel.Text = "StartLevelDuration";
+            this.startLevelDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox11
+            // startLevelDurationValue
             // 
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Location = new System.Drawing.Point(175, 144);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(101, 20);
-            this.textBox11.TabIndex = 14;
+            this.startLevelDurationValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startLevelDurationValue.Location = new System.Drawing.Point(175, 56);
+            this.startLevelDurationValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.startLevelDurationValue.Name = "startLevelDurationValue";
+            this.startLevelDurationValue.ReadOnly = true;
+            this.startLevelDurationValue.Size = new System.Drawing.Size(101, 20);
+            this.startLevelDurationValue.TabIndex = 3;
             // 
-            // label5
+            // timeIncreasePerLevelLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 264);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 44);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "DecreaseTimePerTreatment";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timeIncreasePerLevelLabel.AutoSize = true;
+            this.timeIncreasePerLevelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeIncreasePerLevelLabel.Location = new System.Drawing.Point(3, 88);
+            this.timeIncreasePerLevelLabel.Name = "timeIncreasePerLevelLabel";
+            this.timeIncreasePerLevelLabel.Size = new System.Drawing.Size(166, 44);
+            this.timeIncreasePerLevelLabel.TabIndex = 6;
+            this.timeIncreasePerLevelLabel.Text = "TimeIncreasePerLevel";
+            this.timeIncreasePerLevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // timeIncreasePerLevelValue
             // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(3, 220);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 44);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "InitialTimePerTreatment";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.timeIncreasePerLevelValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeIncreasePerLevelValue.Location = new System.Drawing.Point(175, 100);
+            this.timeIncreasePerLevelValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.timeIncreasePerLevelValue.Name = "timeIncreasePerLevelValue";
+            this.timeIncreasePerLevelValue.ReadOnly = true;
+            this.timeIncreasePerLevelValue.Size = new System.Drawing.Size(101, 20);
+            this.timeIncreasePerLevelValue.TabIndex = 5;
             // 
-            // label9
+            // initialTimePerTreatmentLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(3, 176);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 44);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "DecreaseTimeBetweenPatients";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.initialTimePerTreatmentLabel.AutoSize = true;
+            this.initialTimePerTreatmentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.initialTimePerTreatmentLabel.Location = new System.Drawing.Point(3, 220);
+            this.initialTimePerTreatmentLabel.Name = "initialTimePerTreatmentLabel";
+            this.initialTimePerTreatmentLabel.Size = new System.Drawing.Size(166, 44);
+            this.initialTimePerTreatmentLabel.TabIndex = 11;
+            this.initialTimePerTreatmentLabel.Text = "InitialTimePerTreatment";
+            this.initialTimePerTreatmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // decreaseTimePerTreatmentLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(3, 132);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 44);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "InitialTimeBetweenPatients";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.decreaseTimePerTreatmentLabel.AutoSize = true;
+            this.decreaseTimePerTreatmentLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decreaseTimePerTreatmentLabel.Location = new System.Drawing.Point(3, 264);
+            this.decreaseTimePerTreatmentLabel.Name = "decreaseTimePerTreatmentLabel";
+            this.decreaseTimePerTreatmentLabel.Size = new System.Drawing.Size(166, 44);
+            this.decreaseTimePerTreatmentLabel.TabIndex = 13;
+            this.decreaseTimePerTreatmentLabel.Text = "DecreaseTimePerTreatment";
+            this.decreaseTimePerTreatmentLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
+            // decreaseTimePerTreatmentValue
             // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(3, 88);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(166, 44);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "TimeIncreasePerLevel";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.decreaseTimePerTreatmentValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decreaseTimePerTreatmentValue.Location = new System.Drawing.Point(175, 276);
+            this.decreaseTimePerTreatmentValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.decreaseTimePerTreatmentValue.Name = "decreaseTimePerTreatmentValue";
+            this.decreaseTimePerTreatmentValue.ReadOnly = true;
+            this.decreaseTimePerTreatmentValue.Size = new System.Drawing.Size(101, 20);
+            this.decreaseTimePerTreatmentValue.TabIndex = 17;
             // 
-            // textBox12
+            // initialTimePerTreatmentValue
             // 
-            this.textBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox12.Location = new System.Drawing.Point(175, 100);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(101, 20);
-            this.textBox12.TabIndex = 5;
+            this.initialTimePerTreatmentValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.initialTimePerTreatmentValue.Location = new System.Drawing.Point(175, 232);
+            this.initialTimePerTreatmentValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.initialTimePerTreatmentValue.Name = "initialTimePerTreatmentValue";
+            this.initialTimePerTreatmentValue.ReadOnly = true;
+            this.initialTimePerTreatmentValue.Size = new System.Drawing.Size(101, 20);
+            this.initialTimePerTreatmentValue.TabIndex = 16;
             // 
-            // textBox13
+            // decreaseTimeBetweenPatientsValue
             // 
-            this.textBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox13.Location = new System.Drawing.Point(175, 56);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(101, 20);
-            this.textBox13.TabIndex = 3;
+            this.decreaseTimeBetweenPatientsValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decreaseTimeBetweenPatientsValue.Location = new System.Drawing.Point(175, 188);
+            this.decreaseTimeBetweenPatientsValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.decreaseTimeBetweenPatientsValue.Name = "decreaseTimeBetweenPatientsValue";
+            this.decreaseTimeBetweenPatientsValue.ReadOnly = true;
+            this.decreaseTimeBetweenPatientsValue.Size = new System.Drawing.Size(101, 20);
+            this.decreaseTimeBetweenPatientsValue.TabIndex = 15;
             // 
-            // label13
+            // initialTimeBetweenPatientsValue
             // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(166, 44);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "DifficultyModifier Treatments Based";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            this.initialTimeBetweenPatientsValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.initialTimeBetweenPatientsValue.Location = new System.Drawing.Point(175, 144);
+            this.initialTimeBetweenPatientsValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.initialTimeBetweenPatientsValue.Name = "initialTimeBetweenPatientsValue";
+            this.initialTimeBetweenPatientsValue.ReadOnly = true;
+            this.initialTimeBetweenPatientsValue.Size = new System.Drawing.Size(101, 20);
+            this.initialTimeBetweenPatientsValue.TabIndex = 14;
             // 
-            // label14
+            // decreaseTimeBetweenPatientsLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(3, 44);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(166, 44);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "StartLevelDuration";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.decreaseTimeBetweenPatientsLabel.AutoSize = true;
+            this.decreaseTimeBetweenPatientsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decreaseTimeBetweenPatientsLabel.Location = new System.Drawing.Point(3, 176);
+            this.decreaseTimeBetweenPatientsLabel.Name = "decreaseTimeBetweenPatientsLabel";
+            this.decreaseTimeBetweenPatientsLabel.Size = new System.Drawing.Size(166, 44);
+            this.decreaseTimeBetweenPatientsLabel.TabIndex = 9;
+            this.decreaseTimeBetweenPatientsLabel.Text = "DecreaseTimeBetweenPatients";
+            this.decreaseTimeBetweenPatientsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox14
+            // initialTimeBetweenPatientsLabel
             // 
-            this.textBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox14.Location = new System.Drawing.Point(175, 12);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(101, 20);
-            this.textBox14.TabIndex = 2;
+            this.initialTimeBetweenPatientsLabel.AutoSize = true;
+            this.initialTimeBetweenPatientsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.initialTimeBetweenPatientsLabel.Location = new System.Drawing.Point(3, 132);
+            this.initialTimeBetweenPatientsLabel.Name = "initialTimeBetweenPatientsLabel";
+            this.initialTimeBetweenPatientsLabel.Size = new System.Drawing.Size(166, 44);
+            this.initialTimeBetweenPatientsLabel.TabIndex = 7;
+            this.initialTimeBetweenPatientsLabel.Text = "InitialTimeBetweenPatients";
+            this.initialTimeBetweenPatientsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox19
+            // checkoutPerPatientValue
             // 
-            this.textBox19.Location = new System.Drawing.Point(175, 320);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.ReadOnly = true;
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
-            this.textBox19.TabIndex = 22;
+            this.checkoutPerPatientValue.Location = new System.Drawing.Point(175, 320);
+            this.checkoutPerPatientValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.checkoutPerPatientValue.Name = "checkoutPerPatientValue";
+            this.checkoutPerPatientValue.ReadOnly = true;
+            this.checkoutPerPatientValue.Size = new System.Drawing.Size(100, 20);
+            this.checkoutPerPatientValue.TabIndex = 22;
             // 
-            // textBox20
+            // treatmentMinimumTimeValue
             // 
-            this.textBox20.Location = new System.Drawing.Point(175, 364);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.ReadOnly = true;
-            this.textBox20.Size = new System.Drawing.Size(100, 20);
-            this.textBox20.TabIndex = 23;
+            this.treatmentMinimumTimeValue.Location = new System.Drawing.Point(175, 364);
+            this.treatmentMinimumTimeValue.Margin = new System.Windows.Forms.Padding(3, 12, 3, 12);
+            this.treatmentMinimumTimeValue.Name = "treatmentMinimumTimeValue";
+            this.treatmentMinimumTimeValue.ReadOnly = true;
+            this.treatmentMinimumTimeValue.Size = new System.Drawing.Size(100, 20);
+            this.treatmentMinimumTimeValue.TabIndex = 23;
             // 
-            // label15
+            // checkoutPerPatientLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(3, 308);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(166, 44);
-            this.label15.TabIndex = 24;
-            this.label15.Text = "CheckoutPerPatient";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkoutPerPatientLabel.AutoSize = true;
+            this.checkoutPerPatientLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkoutPerPatientLabel.Location = new System.Drawing.Point(3, 308);
+            this.checkoutPerPatientLabel.Name = "checkoutPerPatientLabel";
+            this.checkoutPerPatientLabel.Size = new System.Drawing.Size(166, 44);
+            this.checkoutPerPatientLabel.TabIndex = 24;
+            this.checkoutPerPatientLabel.Text = "CheckoutPerPatient";
+            this.checkoutPerPatientLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label16
+            // treatmentMinimumTimelabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Location = new System.Drawing.Point(3, 352);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(166, 44);
-            this.label16.TabIndex = 25;
-            this.label16.Text = "TreatmentMinimumTime";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.treatmentMinimumTimelabel.AutoSize = true;
+            this.treatmentMinimumTimelabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treatmentMinimumTimelabel.Location = new System.Drawing.Point(3, 352);
+            this.treatmentMinimumTimelabel.Name = "treatmentMinimumTimelabel";
+            this.treatmentMinimumTimelabel.Size = new System.Drawing.Size(166, 44);
+            this.treatmentMinimumTimelabel.TabIndex = 25;
+            this.treatmentMinimumTimelabel.Text = "TreatmentMinimumTime";
+            this.treatmentMinimumTimelabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
             // 
@@ -1380,64 +1388,64 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.DataGridView treatmentDataGridView;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button treatmentRowButtonAdd;
+        private System.Windows.Forms.Button treatmentRowButtonRemove;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Label timePerTreatmentLabel;
+        private System.Windows.Forms.Label treatmentPerPatientLabel;
+        private System.Windows.Forms.Label numberOfPatientsLabel;
+        private System.Windows.Forms.TextBox numberOfPatientsValue;
+        private System.Windows.Forms.TextBox timeBetweenPatientsValue;
+        private System.Windows.Forms.Label averageEntryTimePerPatientLabel;
+        private System.Windows.Forms.Label timeBetweenPatientsLabel;
+        private System.Windows.Forms.TextBox averageEntryTimePerPatientValue;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListBox balancingRoomList;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.ListBox difficultyModifierList;
+        private System.Windows.Forms.Label milliSecondsPerLevelLabel;
+        private System.Windows.Forms.TextBox minutesPerLevelValue;
+        private System.Windows.Forms.TextBox milliSecondsPerLevelValue;
+        private System.Windows.Forms.TextBox timePerTreatmentValue;
+        private System.Windows.Forms.TextBox treatmentPerPatientValue;
+        private System.Windows.Forms.Label minutesPerLevelLabel;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TextBox decreaseTimePerTreatmentValue;
+        private System.Windows.Forms.TextBox initialTimePerTreatmentValue;
+        private System.Windows.Forms.TextBox decreaseTimeBetweenPatientsValue;
+        private System.Windows.Forms.TextBox initialTimeBetweenPatientsValue;
+        private System.Windows.Forms.Label decreaseTimePerTreatmentLabel;
+        private System.Windows.Forms.Label initialTimePerTreatmentLabel;
+        private System.Windows.Forms.Label decreaseTimeBetweenPatientsLabel;
+        private System.Windows.Forms.Label initialTimeBetweenPatientsLabel;
+        private System.Windows.Forms.Label timeIncreasePerLevelLabel;
+        private System.Windows.Forms.TextBox timeIncreasePerLevelValue;
+        private System.Windows.Forms.TextBox startLevelDurationValue;
+        private System.Windows.Forms.Label difficultyModifierTreatmentsBasedLabel;
+        private System.Windows.Forms.Label startLevelDurationLabel;
+        private System.Windows.Forms.TextBox difficultyModifierTreatmentsBasedValue;
+        private System.Windows.Forms.TextBox checkoutPerPatientValue;
+        private System.Windows.Forms.TextBox treatmentMinimumTimeValue;
+        private System.Windows.Forms.Label checkoutPerPatientLabel;
+        private System.Windows.Forms.Label treatmentMinimumTimelabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Button buttonAddDiffModifier;
+        private System.Windows.Forms.Button buttonRemoveDiffModifier;
+        private System.Windows.Forms.NumericUpDown diffModifierValue;
         private System.Windows.Forms.DataGridViewCheckBoxColumn treatmentSelect;
-        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn treatmentName;
         private System.Windows.Forms.DataGridViewComboBoxColumn difficultyUnlocked;
         private System.Windows.Forms.DataGridViewTextBoxColumn heartsValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightPercentage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn gesture;
         private System.Windows.Forms.DataGridViewCheckBoxColumn alwaysLast;
-        private System.Windows.Forms.DataGridViewButtonColumn color;
+        private System.Windows.Forms.DataGridViewButtonColumn colorButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorValue;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox balancingRoomList;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.ListBox difficultyModifierList;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.Button buttonAddDiffModifier;
-        private System.Windows.Forms.Button buttonRemoveDiffModifier;
-        private System.Windows.Forms.NumericUpDown diffModifierValue;
     }
 }

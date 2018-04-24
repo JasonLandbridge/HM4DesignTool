@@ -23,6 +23,10 @@ namespace Windows
         private int lastLoadedPatientTypeCategoriesIndex = 0;
         private Dictionary<String, List<String>> patientTypeCategoriesDict = Globals.SettingsObject.GetPatientTypes();  // Room[N] -> List with only checked patientTypes
 
+        //Treatment Type Tab
+        private int lastLoadedTreatmentCategoriesIndex = 0;
+        private Dictionary<String, List<Treatment>> treatmentCategoriesDict = Globals.SettingsObject.GetTreatmentDictionary(); // Room[N] -> List with only checked patientTypes
+
         //Balancing Tab
         private int lastLoadedBalancingCategoriesIndex = 0;
         private Dictionary<String, List<String>> balancingCategoriesDict = Globals.SettingsObject.GetBalancingCategories();  // Room[N] -> List with double difficulty Modifiers
@@ -33,9 +37,12 @@ namespace Windows
             WindowMain = parentWindow;
             SettingsObject = Globals.SettingsObject;
             InitializeComponent();
-            this.SetupPatientTypeTab();
-            this.SetupBalancingTab();
-            this.restoreSettings();
+
+            SetupPatientTypeTab();
+            SetupTreatmentTab();
+            SetupBalancingTab();
+
+            restoreSettings();
 
         }
 
@@ -53,26 +60,18 @@ namespace Windows
 
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            this.saveSettings();
-            this.Hide();
-        }
-
-        private void canelButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
 
 
         private void saveSettings()
         {
-
+            //Add these functions to ensure everything is saved
             StorePatientTypeCategory();
+            StoreTreatmentCategory();
             StoreBalancingCategory();
 
             Globals.SettingsObject.projectPathData = projectDirectoryPathText.Text;
             Globals.SettingsObject.SetPatientTypes(patientTypeCategoriesDict);
+            Globals.SettingsObject.SetTreatmentCategories(treatmentCategoriesDict);
             Globals.SettingsObject.SetBalancingCategories(balancingCategoriesDict);
             Globals.SettingsObject.Save();
         }
@@ -83,9 +82,10 @@ namespace Windows
             projectDirectoryPathText.Text = SettingsObject.projectPathData;
             LoadPatientTypeCategory();
             LoadBalancingCategory();
+            LoadTreatmentCategory();
         }
 
-
+        #region Setup
         private void SetupPatientTypeTab()
         {
             //Set categories for the patientTypeRoomList
@@ -131,9 +131,26 @@ namespace Windows
 
         }
 
+        private void SetupTreatmentTab()
+        {
+            //Set categories for the treatmentRoomList
+            treatmentRoomList.Items.Clear();
+            foreach (String roomName in Globals.roomCategories)
+            {
+                treatmentRoomList.Items.Add(roomName);
+
+                if (!treatmentCategoriesDict.ContainsKey(roomName))
+                {
+                    treatmentCategoriesDict.Add(roomName, new List<Treatment> { });
+                }
+
+            }
+            treatmentRoomList.SelectedIndex = 0;
+        }
+
         private void SetupBalancingTab()
         {
-            //Set categories for the patientTypeRoomList
+            //Set categories for the balancingRoomList
             balancingRoomList.Items.Clear();
             foreach (String roomName in Globals.roomCategories)
             {
@@ -148,18 +165,33 @@ namespace Windows
 
             balancingRoomList.SelectedIndex = 0;
 
+            // Load Values
+
+            //Load Global Values
+            difficultyModifierTreatmentsBasedValue.Text = Globals.GameValue.difficultyModifierTreatmentsBased.ToString("N0");
+            decreaseTimePerTreatmentValue.Text = Globals.GameValue.decreaseTimePerTreatment.ToString("N0") + " ms";
+            initialTimePerTreatmentValue.Text = Globals.GameValue.initialTimePerTreatment.ToString("N0") + " ms";
+            decreaseTimeBetweenPatientsValue.Text = Globals.GameValue.decreaseTimeBetweenPatients.ToString("N0") + " ms";
+            initialTimeBetweenPatientsValue.Text = Globals.GameValue.initialTimeBetweenPatients.ToString("N0") + " ms";
+            timeIncreasePerLevelValue.Text = Globals.GameValue.timeIncreasePerLevel.ToString("N0") + " ms";
+            startLevelDurationValue.Text = Globals.GameValue.startLevelDuration.ToString("N0") + " ms";
+            checkoutPerPatientValue.Text = Globals.GameValue.checkoutPerPatient.ToString("N0") + " ms";
+            treatmentMinimumTimeValue.Text = Globals.GameValue.treatmentMinimumTime.ToString("N0") + " ms";
+
 
 
         }
 
+        #endregion
 
+        #region StoreData
         private void StorePatientTypeCategory()
         {
             String categoryKey = patientTypeRoomList.Items[lastLoadedPatientTypeCategoriesIndex].ToString();
             List<String> checkedPatientTypes = new List<String> { };
 
 
-            foreach(CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
+            foreach (CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
             {
                 foreach (object itemChecked in checkList.CheckedItems)
                 {
@@ -178,36 +210,22 @@ namespace Windows
             }
         }
 
-        private void LoadPatientTypeCategory()
+        private void StoreTreatmentCategory()
         {
-            if (patientTypeRoomList.SelectedIndex > -1)
+            String categoryKey = treatmentRoomList.Items[lastLoadedTreatmentCategoriesIndex].ToString();
+            List<Treatment> treatmentDataRows = new List<Treatment> { };
+
+            foreach (DataGridViewRow Datarow in treatmentDataGridView.Rows)
             {
-                String categoryKey = patientTypeRoomList.Items[patientTypeRoomList.SelectedIndex].ToString();
-                List<String> patientTypeList = patientTypeCategoriesDict[categoryKey];
-                foreach (CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
+                //Check if TreatmentName has been filled in otherwise discard
+                if (Datarow.Cells[1].Value != null && Datarow.Cells[1].Value.ToString() != "")
                 {
-                    for (int i = 0; i < checkList.Items.Count; i++)
-                    {
-                        //Check if the patientType occurs
-                        checkList.SetItemChecked(i, patientTypeList.Contains(checkList.Items[i].ToString()));
-                    }
+                    treatmentDataRows.Add(new Treatment(Datarow));
                 }
-                lastLoadedPatientTypeCategoriesIndex = patientTypeRoomList.SelectedIndex; 
             }
-        }
 
-        private void onPatientTypeCategorySelected(object sender, EventArgs e)
-        {
-            StorePatientTypeCategory();
-            LoadPatientTypeCategory();
+            treatmentCategoriesDict[categoryKey] = treatmentDataRows;
         }
-
-        private void onBalancingCategorySelected(object sender, EventArgs e)
-        {
-            StoreBalancingCategory();
-            LoadBalancingCategory();
-        }
-
 
         private void StoreBalancingCategory()
         {
@@ -232,6 +250,43 @@ namespace Windows
             }
 
         }
+        #endregion
+
+        #region LoadData
+        private void LoadPatientTypeCategory()
+        {
+            if (patientTypeRoomList.SelectedIndex > -1)
+            {
+                String categoryKey = patientTypeRoomList.Items[patientTypeRoomList.SelectedIndex].ToString();
+                List<String> patientTypeList = patientTypeCategoriesDict[categoryKey];
+                foreach (CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
+                {
+                    for (int i = 0; i < checkList.Items.Count; i++)
+                    {
+                        //Check if the patientType occurs
+                        checkList.SetItemChecked(i, patientTypeList.Contains(checkList.Items[i].ToString()));
+                    }
+                }
+                lastLoadedPatientTypeCategoriesIndex = patientTypeRoomList.SelectedIndex; 
+            }
+        }
+
+        private void LoadTreatmentCategory()
+        {
+            if (patientTypeRoomList.SelectedIndex > -1)
+            {
+                String categoryKey = treatmentRoomList.Items[treatmentRoomList.SelectedIndex].ToString();
+                List<Treatment> treatmentDataRows = treatmentCategoriesDict[categoryKey];
+
+                treatmentDataGridView.Rows.Clear();
+                foreach (Treatment dataRow in treatmentDataRows)
+                {
+                    AddTreatmentDataViewRow(dataRow, false);
+                }
+
+                lastLoadedTreatmentCategoriesIndex = treatmentRoomList.SelectedIndex;
+            }
+        }
 
         private void LoadBalancingCategory()
         {
@@ -245,41 +300,164 @@ namespace Windows
                 {
                     difficultyModifierList.Items.Add(difficultyModifier.ToString());
                 }
-
+                if (difficultyModifierList.Items.Count > 0)
+                {
+                    difficultyModifierList.SelectedIndex = 0;
+                }
+                else
+                {
+                    ClearDifficultyModifierData();
+                }
                 lastLoadedBalancingCategoriesIndex = balancingRoomList.SelectedIndex;
             }
 
 
         }
 
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            colorDialog1.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void LoadDifficultyModifierData(String difficultyModifier)
         {
 
+            Dictionary<String, Double> balancingData = Globals.GameValue.GetBalancingData(difficultyModifier);
+
+            averageEntryTimePerPatientValue.Text = balancingData["averageEntryTimePerPatient"].ToString();
+            timeBetweenPatientsValue.Text = balancingData["timeBetweenPatients"].ToString();
+            numberOfPatientsValue.Text = balancingData["numberOfPatients"].ToString();
+            treatmentPerPatientValue.Text = balancingData["treatmentPerPatient"].ToString();
+            timePerTreatmentValue.Text = balancingData["timePerTreatment"].ToString();
+            milliSecondsPerLevelValue.Text = balancingData["milliSecondsPerLevel"].ToString();
+            minutesPerLevelValue.Text = String.Format("{0:0.0000000}", balancingData["minutesPerLevel"]);
+           
+        }
+        #endregion
+
+        private void ClearDifficultyModifierData()
+        {
+            averageEntryTimePerPatientValue.Clear();
+            timeBetweenPatientsValue.Clear();
+            numberOfPatientsValue.Clear();
+            treatmentPerPatientValue.Clear();
+            timePerTreatmentValue.Clear();
+            milliSecondsPerLevelValue.Clear();
+            minutesPerLevelValue.Clear();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void AddTreatmentDataViewRow(Treatment treatmentRow = new Treatment(), bool defaultRow = true)
+        {
+            treatmentDataGridView.Rows.Add();
+            DataGridViewRow row = treatmentDataGridView.Rows[treatmentDataGridView.RowCount - 1];
+            row.Cells["treatmentSelect"].Value = false;
+
+            //Add DifficultyModifiers to DropDownBox
+            DataGridViewComboBoxCell comboCell = (DataGridViewComboBoxCell)row.Cells["difficultyUnlocked"];
+            comboCell.Items.Add("0.0");
+            comboCell.Value = comboCell.Items[0];
+            String categoryKey = treatmentRoomList.Items[treatmentRoomList.SelectedIndex].ToString();
+            foreach (String difficultyModifier in Globals.SettingsObject.GetDifficultyModifierList(categoryKey))
+            {
+                comboCell.Items.Add(difficultyModifier);
+            }
+
+            if (defaultRow && treatmentRow.IsEmpty())
+            {
+                row.Cells["treatmentName"].Value = "";
+                row.Cells["heartsValue"].Value = "0";
+                row.Cells["weight"].Value = "0";
+                row.Cells["weightPercentage"].Value = "0.0%";
+                row.Cells["gesture"].Value = false;
+                row.Cells["alwaysLast"].Value = false;
+                row.Cells["colorValue"].Value = "#FFFFFFF";
+
+            }
+            else
+            {
+                row.Cells["treatmentName"].Value = treatmentRow.TreatmentName;
+                row.Cells["heartsValue"].Value = treatmentRow.HeartsValue.ToString();
+                row.Cells["weight"].Value = treatmentRow.Weight.ToString();
+                row.Cells["weightPercentage"].Value = "0.0%";
+                row.Cells["gesture"].Value = treatmentRow.Gesture;
+                row.Cells["alwaysLast"].Value = treatmentRow.AlwaysLast;
+                row.Cells["colorValue"].Value = treatmentRow.ColorValue.ToString();
+            }
+        }
+
+        #region OnClickEvents
+
+        //General
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            this.saveSettings();
+            this.Hide();
+        }
+
+        private void canelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+        
+        //PatientType
+
+        private void OnPatientTypeCategorySelected(object sender, EventArgs e)
+        {
+            StorePatientTypeCategory();
+            LoadPatientTypeCategory();
+        }
+
+        //Treatment Tab
+
+        private void OnTreatmentCategorySelected(object sender, EventArgs e)
+        {
+            StoreTreatmentCategory();
+            LoadTreatmentCategory();
+        }
+        private void TreatmentRowButtonAdd_Click(object sender, EventArgs e)
+        {
+            AddTreatmentDataViewRow();
+
+        }
+        private void TreatmentRowButtonRemove_Click(object sender, EventArgs e)
         {
 
+            if (treatmentDataGridView.RowCount > 0)
+            {
+                int removedRowCount = 0;
+                for (int i = treatmentDataGridView.RowCount - 1; i >= 0; --i)
+                {
+                    DataGridViewRow Datarow = treatmentDataGridView.Rows[i];
+
+
+                    //Get the appropriate cell using index, name or whatever and cast to DataGridViewCheckBoxCell
+                    DataGridViewCheckBoxCell cell = Datarow.Cells[0] as DataGridViewCheckBoxCell;
+
+                    //Compare to the true value because Value isn't boolean
+                    if ((bool)cell.Value == true)
+                    {
+                        treatmentDataGridView.Rows.RemoveAt(i);
+                        removedRowCount++;
+                    }
+                }
+                //Remove last row if nothing is selected
+                if (removedRowCount == 0)
+                {
+                    treatmentDataGridView.Rows.RemoveAt(treatmentDataGridView.RowCount - 1);
+                } 
+            }
+            
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        // Balancing Tab
+        private void OnBalancingCategorySelected(object sender, EventArgs e)
         {
-
+            StoreBalancingCategory();
+            LoadBalancingCategory();
         }
 
-        private void tableLayoutPanel12_Paint(object sender, PaintEventArgs e)
+        private void OnDifficultyModifierSelected(object sender, EventArgs e)
         {
-
+            LoadDifficultyModifierData(difficultyModifierList.SelectedItem.ToString());
         }
 
-        private void buttonAddDiffModifier_Click(object sender, EventArgs e)
+        private void ButtonAddDiffModifier_Click(object sender, EventArgs e)
         {
             if(diffModifierValue.Value != 0 && !difficultyModifierList.Items.Contains(diffModifierValue.Value.ToString()))
             {
@@ -306,7 +484,7 @@ namespace Windows
             }
         }
 
-        private void buttonRemoveDiffModifier_Click(object sender, EventArgs e)
+        private void ButtonRemoveDiffModifier_Click(object sender, EventArgs e)
         {
 
 
@@ -316,5 +494,35 @@ namespace Windows
                 difficultyModifierList.Items.Remove(item);
             }
         }
+
+        #endregion
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            colorDialog1.ShowDialog();
+        }
+
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void treatmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
+
 }
