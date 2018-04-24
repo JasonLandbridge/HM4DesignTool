@@ -4,8 +4,7 @@ using System;
 using System.Collections.Generic;
 
 namespace SettingsNamespace
-{   //https://github.com/Nucs/JsonSettings
-    //Step 1: create a class and inherit JsonSettings
+{   //Storing settings in JSON: https://github.com/Nucs/JsonSettings
     public class Settings
     {
 
@@ -15,13 +14,38 @@ namespace SettingsNamespace
         {
             get
             {
-                return gSettings.patientTypeCategories;
+                if (gSettings.patientTypeCategories != null)
+                {
+                    return gSettings.patientTypeCategories;
+                }
+                else
+                {
+                    return new Dictionary<String, List<String>> { };
+                }
             }
             set
             {
                 gSettings.patientTypeCategories = value;
             }
         }  // Room[N] -> List with only checked patientTypes
+        private Dictionary<String, List<String>> balancingCategoriesDict
+        {
+            get
+            {
+                if (gSettings.balancingCategoriesDict != null)
+                {
+                    return gSettings.balancingCategoriesDict;
+                }
+                else
+                {
+                    return new Dictionary<String, List<String>> { };
+                }
+            }
+            set
+            {
+                gSettings.balancingCategoriesDict = value;
+            }
+        }  // Room[N] -> List with String difficulty Modifiers
 
         #region Settings
 
@@ -60,6 +84,7 @@ namespace SettingsNamespace
             }
         }
 
+        #region Getters
 
 
         public Dictionary<String, List<String>> GetPatientTypes(String categoryKey = null)
@@ -74,7 +99,7 @@ namespace SettingsNamespace
                 }
                 else
                 {
-                    Console.WriteLine("ERROR: windowSettings.StorePatientTypeCategory, patientTypeCategoriesDict does not contain key: " + categoryKey);
+                    Console.WriteLine("ERROR: windowSettings.GetPatientTypes, patientTypeCategoriesDict does not contain key: " + categoryKey);
                 }
                 return filterdPatientTypeDict;
 
@@ -85,12 +110,47 @@ namespace SettingsNamespace
             }
         }
 
+
+        public Dictionary<String, List<String>> GetBalancingCategories(String categoryKey = null)
+        {
+            if (categoryKey != null)
+            {
+                Dictionary<String, List<String>> filterdBalancingCategory = new Dictionary<String, List<String>> { };  // Room[N] -> List with Difficulty modifiers in String
+
+                if (balancingCategoriesDict.ContainsKey(categoryKey))
+                {
+                    filterdBalancingCategory.Add(categoryKey, balancingCategoriesDict[categoryKey]);
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: windowSettings.GetBalancingCategories, balancingCategoriesDict does not contain key: " + categoryKey);
+                }
+                return filterdBalancingCategory;
+
+            }
+            else
+            {
+                return balancingCategoriesDict;
+            }
+        }
+
+        #endregion
+
+        #region Setters
+
         public void SetPatientTypes(Dictionary<String, List<String>> patientTypeCategoriesDict)
         {
             this.patientTypeCategoriesDict = patientTypeCategoriesDict;
         }
+
+        public void SetBalancingCategories(Dictionary<String, List<String>> balancingCategoriesDict)
+        {
+            this.balancingCategoriesDict = balancingCategoriesDict;
+        }
+
         #endregion
 
+        #endregion
         public Settings()
         {
             pSettings.Load();
@@ -123,10 +183,8 @@ namespace SettingsNamespace
     {
         public override string FileName { get; set; } = "global.json"; //for loading and saving.
 
-        public Dictionary<String, List<String>> patientTypeCategories {
-            get;
-            set; 
-        }
+        public Dictionary<String, List<String>> patientTypeCategories { get; set; }
+        public Dictionary<String, List<String>> balancingCategoriesDict { get; set; } 
 
         public GlobalSettings() { }
         public GlobalSettings(string fileName) : base(fileName) { }

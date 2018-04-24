@@ -10,8 +10,9 @@ using System.Windows.Forms;
 using nucs.JsonSettings;
 using SettingsNamespace;
 using DataNameSpace;
+using NaturalSort.Extension;
 
-namespace Windows.Forms
+namespace Windows
 {
     public partial class windowSettings : Form
     {
@@ -22,6 +23,10 @@ namespace Windows.Forms
         private int lastLoadedPatientTypeCategoriesIndex = 0;
         private Dictionary<String, List<String>> patientTypeCategoriesDict = Globals.SettingsObject.GetPatientTypes();  // Room[N] -> List with only checked patientTypes
 
+        //Balancing Tab
+        private int lastLoadedBalancingCategoriesIndex = 0;
+        private Dictionary<String, List<String>> balancingCategoriesDict = Globals.SettingsObject.GetBalancingCategories();  // Room[N] -> List with double difficulty Modifiers
+
 
         public windowSettings(windowMain parentWindow)
         {
@@ -29,7 +34,9 @@ namespace Windows.Forms
             SettingsObject = Globals.SettingsObject;
             InitializeComponent();
             this.SetupPatientTypeTab();
+            this.SetupBalancingTab();
             this.restoreSettings();
+
         }
 
 
@@ -62,10 +69,11 @@ namespace Windows.Forms
         {
 
             StorePatientTypeCategory();
-
+            StoreBalancingCategory();
 
             Globals.SettingsObject.projectPathData = projectDirectoryPathText.Text;
             Globals.SettingsObject.SetPatientTypes(patientTypeCategoriesDict);
+            Globals.SettingsObject.SetBalancingCategories(balancingCategoriesDict);
             Globals.SettingsObject.Save();
         }
 
@@ -73,8 +81,8 @@ namespace Windows.Forms
         private void restoreSettings()
         {
             projectDirectoryPathText.Text = SettingsObject.projectPathData;
-
-
+            LoadPatientTypeCategory();
+            LoadBalancingCategory();
         }
 
 
@@ -85,6 +93,10 @@ namespace Windows.Forms
             foreach (String roomName in Globals.roomCategories)
             {
                 patientTypeRoomList.Items.Add(roomName);
+                if (!patientTypeCategoriesDict.ContainsKey(roomName))
+                {
+                    patientTypeCategoriesDict.Add(roomName, new List<String>{ });
+                }
             }
 
             patientTypeRoomList.SelectedIndex = 0;
@@ -119,6 +131,27 @@ namespace Windows.Forms
 
         }
 
+        private void SetupBalancingTab()
+        {
+            //Set categories for the patientTypeRoomList
+            balancingRoomList.Items.Clear();
+            foreach (String roomName in Globals.roomCategories)
+            {
+                balancingRoomList.Items.Add(roomName);
+
+                if (!balancingCategoriesDict.ContainsKey(roomName))
+                {
+                    balancingCategoriesDict.Add(roomName, new List<String> { });
+                }
+                
+            }
+
+            balancingRoomList.SelectedIndex = 0;
+
+
+
+        }
+
 
         private void StorePatientTypeCategory()
         {
@@ -147,17 +180,20 @@ namespace Windows.Forms
 
         private void LoadPatientTypeCategory()
         {
-            String categoryKey = patientTypeRoomList.Items[patientTypeRoomList.SelectedIndex].ToString();
-            List<String> patientTypeList = patientTypeCategoriesDict[categoryKey];
-            foreach (CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
+            if (patientTypeRoomList.SelectedIndex > -1)
             {
-                for (int i = 0; i < checkList.Items.Count; i++)
+                String categoryKey = patientTypeRoomList.Items[patientTypeRoomList.SelectedIndex].ToString();
+                List<String> patientTypeList = patientTypeCategoriesDict[categoryKey];
+                foreach (CheckedListBox checkList in new List<CheckedListBox> { patientTypeMaleCheckList, patientTypeFemaleCheckList, patientTypeOtherCheckList })
                 {
-                    //Check if the patientType occurs
-                    checkList.SetItemChecked(i, patientTypeList.Contains(checkList.Items[i].ToString()));
+                    for (int i = 0; i < checkList.Items.Count; i++)
+                    {
+                        //Check if the patientType occurs
+                        checkList.SetItemChecked(i, patientTypeList.Contains(checkList.Items[i].ToString()));
+                    }
                 }
+                lastLoadedPatientTypeCategoriesIndex = patientTypeRoomList.SelectedIndex; 
             }
-            lastLoadedPatientTypeCategoriesIndex = patientTypeRoomList.SelectedIndex;
         }
 
         private void onPatientTypeCategorySelected(object sender, EventArgs e)
@@ -166,5 +202,119 @@ namespace Windows.Forms
             LoadPatientTypeCategory();
         }
 
+        private void onBalancingCategorySelected(object sender, EventArgs e)
+        {
+            StoreBalancingCategory();
+            LoadBalancingCategory();
+        }
+
+
+        private void StoreBalancingCategory()
+        {
+            if (lastLoadedBalancingCategoriesIndex > -1)
+            {
+                String categoryKey = balancingRoomList.Items[lastLoadedBalancingCategoriesIndex].ToString();
+                List<String> difficultyModifiers = new List<String> { };
+                if (balancingCategoriesDict.ContainsKey(categoryKey))
+                {
+
+                    foreach (object difficultyModifier in difficultyModifierList.Items)
+                    {
+                        difficultyModifiers.Add(difficultyModifier.ToString());
+                    }
+
+                    balancingCategoriesDict[categoryKey] = difficultyModifiers;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: windowSettings.StoreBalancingCategory, balancingCategoriesDict does not contain key: " + categoryKey);
+                } 
+            }
+
+        }
+
+        private void LoadBalancingCategory()
+        {
+            if (balancingRoomList.SelectedIndex > -1)
+            {
+                String categoryKey = balancingRoomList.Items[balancingRoomList.SelectedIndex].ToString();
+                List<String> difficultyModifiers = balancingCategoriesDict[categoryKey];
+
+                difficultyModifierList.Items.Clear();
+                foreach (String difficultyModifier in difficultyModifiers)
+                {
+                    difficultyModifierList.Items.Add(difficultyModifier.ToString());
+                }
+
+                lastLoadedBalancingCategoriesIndex = balancingRoomList.SelectedIndex;
+            }
+
+
+        }
+
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            colorDialog1.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel12_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonAddDiffModifier_Click(object sender, EventArgs e)
+        {
+            if(diffModifierValue.Value != 0 && !difficultyModifierList.Items.Contains(diffModifierValue.Value.ToString()))
+            {
+                difficultyModifierList.Items.Add(diffModifierValue.Value.ToString());
+
+                // Natural sort of the sequence on each update
+                List<String> sequence = new List<String> { };
+                foreach (object item in difficultyModifierList.Items)
+                {
+                    sequence.Add(item.ToString());
+                }
+                                
+                var ordered = sequence.OrderBy(x => x, StringComparer.OrdinalIgnoreCase.WithNaturalSort());
+
+                difficultyModifierList.Items.Clear();
+
+                foreach (String item in ordered)
+                {
+                    difficultyModifierList.Items.Add(item);
+                }
+
+
+
+            }
+        }
+
+        private void buttonRemoveDiffModifier_Click(object sender, EventArgs e)
+        {
+
+
+            for (int i = difficultyModifierList.SelectedItems.Count - 1; i >= 0; --i)
+            {
+                object item = difficultyModifierList.SelectedItems[i];
+                difficultyModifierList.Items.Remove(item);
+            }
+        }
     }
 }

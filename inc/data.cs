@@ -7,6 +7,8 @@ using System.IO;
 using SettingsNamespace;
 using LevelData;
 using Windows;
+using System.Windows.Forms;
+using NaturalSort.Extension;
 
 namespace DataNameSpace
 {
@@ -207,4 +209,6 @@ namespace DataNameSpace
             return newLevel;
         }
     }
+
+
 }

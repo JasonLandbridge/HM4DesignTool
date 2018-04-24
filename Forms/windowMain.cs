@@ -1,4 +1,4 @@
-﻿using Windows.Forms;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,7 +68,10 @@ namespace Windows
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsWindow.Show();
+            if (!SettingsWindow.Visible)
+            {
+                SettingsWindow.Show();
+            }
         }
 
         private void debugButton_Click(object sender, EventArgs e)
