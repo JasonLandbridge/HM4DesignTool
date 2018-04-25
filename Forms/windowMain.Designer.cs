@@ -709,6 +709,7 @@
             // 
             // patientOverviewLayout
             // 
+            this.patientOverviewLayout.AutoScroll = true;
             this.patientOverviewLayout.AutoSize = true;
             this.patientOverviewLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.patientOverviewLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
