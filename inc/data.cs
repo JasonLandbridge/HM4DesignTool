@@ -68,26 +68,29 @@ namespace DataNameSpace
             if (levelList == null || levelList.Count() == 0 || reload)
             {
                 String projectPath = Globals.SettingsObject.projectPathLevel;
-                List<String> rawLevelList = new List<String>(System.IO.Directory.GetFiles(projectPath));
-                List<String> tmpLevelList = new List<String> { };
-
-                foreach (String level in rawLevelList)
+                if (Directory.Exists(projectPath))
                 {
-                    String levelName = Path.GetFileName(level);
-                    if (filterExtension)
+
+                    List<String> rawLevelList = new List<String>(System.IO.Directory.GetFiles(projectPath));
+                    List<String> tmpLevelList = new List<String> { };
+
+                    foreach (String level in rawLevelList)
                     {
-                        tmpLevelList.Add(levelName.Replace(".lua", ""));
-                    }
-                    else
-                    {
-                        tmpLevelList.Add(levelName);
-                    }
+                        String levelName = Path.GetFileName(level);
+                        if (filterExtension)
+                        {
+                            tmpLevelList.Add(levelName.Replace(".lua", ""));
+                        }
+                        else
+                        {
+                            tmpLevelList.Add(levelName);
+                        }
 
 
+                    }
+
+                    levelList = tmpLevelList;
                 }
-
-                levelList = tmpLevelList;
-
             }
 
             return levelList;
@@ -98,15 +101,19 @@ namespace DataNameSpace
             if (patientTypeList == null || patientTypeList.Count() == 0 || reload)
             {
                 String projectPath = Globals.SettingsObject.projectPathImages + "patients\\";
-                List<String> rawPatientTypeList = new List<String>(System.IO.Directory.GetDirectories(projectPath));
-                List<String> rawPatientList = new List<String> { };
 
-                foreach (String patientType in rawPatientTypeList)
+                if (System.IO.Directory.Exists(projectPath))
                 {
-                    rawPatientList.Add(patientType.Replace(projectPath, ""));
-                }
+                    List<String> rawPatientTypeList = new List<String>(System.IO.Directory.GetDirectories(projectPath));
+                    List<String> rawPatientList = new List<String> { };
 
-                patientTypeList = rawPatientList;
+                    foreach (String patientType in rawPatientTypeList)
+                    {
+                        rawPatientList.Add(patientType.Replace(projectPath, ""));
+                    }
+
+                    patientTypeList = rawPatientList;
+                }
 
             }
 
