@@ -48,8 +48,7 @@ namespace Windows
         private void SetupPatientOverview()
         {
             PatientOverview = new PatientOverview();
-            PatientOverview.patientOverviewLayout = patientOverviewLayout;
-
+            PatientOverview.SetupPatientOverview(patientOverviewLayout, patientOverviewPanel);
         }
 
         private void loadLevels()
@@ -133,18 +132,38 @@ namespace Windows
         {
             PatientOverview.AddPatientRow();
         }
+
+        private void patientOverviewLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonPatientOverviewRemoveRow_Click(object sender, EventArgs e)
+        {
+            PatientOverview.RemovePatientRow(-1);
+        }
     }
 
     public class PatientOverview
     {
         private windowMain mainWindow = Globals.windowMainObject;
         public TableLayoutPanel patientOverviewLayout;
+        public Panel patientOverviewPanel;
 
         private Dictionary<int, PatientOverviewRow> patientOverviewRowsDict = new Dictionary<int, PatientOverviewRow> { };
 
         public PatientOverview()
         {
             
+        }
+
+        public void SetupPatientOverview(TableLayoutPanel patientOverviewLayout, Panel patientOverviewPanel)
+        { 
+            this.patientOverviewLayout = patientOverviewLayout;
+            this.patientOverviewPanel = patientOverviewPanel;
+            //Remove the first patient row to ensure that all rows are made by PatientOverview Class
+            RemovePatientRow(0);
+            AddPatientRow();
         }
 
         public void AddPatientRow()
@@ -154,18 +173,73 @@ namespace Windows
             SuspendLayout(false);
         }
 
+        public void RemovePatientRow(int index = -1)
+        {
+
+            if (patientOverviewLayout.RowCount > 0)
+            {
+                SuspendLayout(true);
+                // if index is invalid default to removing the last row
+                if(index < 0 || index >= patientOverviewLayout.RowCount)
+                {
+                    index = patientOverviewLayout.RowCount - 1;
+                }
+                //Remove patientRow from Layout
+                if (0 <= index && index < patientOverviewLayout.RowCount)
+                {
+                    //https://stackoverflow.com/a/31371962
+                    // delete all controls of row that we want to delete
+                    for (int i = 0; i < patientOverviewLayout.ColumnCount; i++)
+                    {
+                        var control = patientOverviewLayout.GetControlFromPosition(i, index);
+                        patientOverviewLayout.Controls.Remove(control);
+                    }
+
+                    // move up row controls that comes after row we want to remove
+                    for (int i = index + 1; i < patientOverviewLayout.RowCount; i++)
+                    {
+                        for (int j = 0; j < patientOverviewLayout.ColumnCount; j++)
+                        {
+                            var control = patientOverviewLayout.GetControlFromPosition(j, i);
+                            if (control != null)
+                            {
+                                patientOverviewLayout.SetRow(control, i - 1);
+                            }
+                        }
+                    }
+
+                    // remove last row
+                    patientOverviewLayout.RowStyles.RemoveAt(patientOverviewLayout.RowCount - 1);
+                    patientOverviewLayout.RowCount--;
+                }
+
+                //Remove patientRow from patientOverviewRowsDict
+                if (patientOverviewRowsDict.ContainsKey(index))
+                {
+                    patientOverviewRowsDict.Remove(index);
+                }
+                SuspendLayout(false);
+
+            }
+        }
+
         public void SuspendLayout(bool state = true)
         {
             if (state)
             {
+                //patientOverviewPanel.SuspendLayout();
                 patientOverviewLayout.SuspendLayout();
             }
             else
             {
+                //patientOverviewPanel.ResumeLayout(false);
                 patientOverviewLayout.ResumeLayout(true);
+                patientOverviewLayout.PerformLayout();
             }
+
         }
-    }
+     }
+    
 
     public class PatientOverviewRow : Object
     {
@@ -198,7 +272,10 @@ namespace Windows
             this.rowIndex = rowIndex;
             patientOverviewLayout = parent.patientOverviewLayout;
             ConstructRow();
+            SuspendLayout(true);
             SetupRow();
+            SuspendLayout(false);
+
         }
 
         private void ConstructRow()
@@ -394,8 +471,28 @@ namespace Windows
             this.patientRowTraits.UseVisualStyleBackColor = true;
 
         }
+
+        public void DestroyRow()
+        {
+
+        }
+
+        public void SuspendLayout(bool state = true)
+        {
+            if (state)
+            {
+                patientRowRandomLayout.SuspendLayout();
+                patientRowTreatmentLayout.SuspendLayout();
+            }
+            else
+            {
+                patientRowRandomLayout.ResumeLayout(false);
+                patientRowTreatmentLayout.ResumeLayout(false);
+            }
+        }
+
     }
 
-
-    
 }
+
+
