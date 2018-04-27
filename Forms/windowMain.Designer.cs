@@ -66,10 +66,10 @@
             this.tabPatientOverview = new System.Windows.Forms.TabPage();
             this.patientOverviewMainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.patientOverviewHeaderLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.patientOverviewHeaderWeightLabel = new System.Windows.Forms.Label();
+            this.patientOverviewHeaderSelectAllCheck = new System.Windows.Forms.CheckBox();
+            this.patientOverviewHeaderPatientNameLabel = new System.Windows.Forms.Label();
+            this.patientOverviewHeaderPatientDelayLabel = new System.Windows.Forms.Label();
             this.patientOverviewPanel = new System.Windows.Forms.Panel();
             this.patientOverviewLayout = new System.Windows.Forms.TableLayoutPanel();
             this.patientRowSelect = new System.Windows.Forms.CheckBox();
@@ -93,6 +93,9 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonPatientOverviewRemoveRow = new System.Windows.Forms.Button();
             this.buttonPatientOverviewAddRow = new System.Windows.Forms.Button();
+            this.patientOverviewOptionsLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.patientOverviewHeaderEnableWeightCheck = new System.Windows.Forms.CheckBox();
             this.tabPatientChances = new System.Windows.Forms.TabPage();
             this.previewSplitContainer = new System.Windows.Forms.SplitContainer();
             this.currentPreviewTextBox = new System.Windows.Forms.TextBox();
@@ -128,6 +131,7 @@
             this.patientRowTreatmentLayout.SuspendLayout();
             this.patientOverviewFooterLayout.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.patientOverviewOptionsLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewSplitContainer)).BeginInit();
             this.previewSplitContainer.Panel1.SuspendLayout();
             this.previewSplitContainer.Panel2.SuspendLayout();
@@ -628,71 +632,69 @@
             this.patientOverviewHeaderLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.patientOverviewHeaderLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.patientOverviewHeaderLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.patientOverviewHeaderLayout.Controls.Add(this.checkBox1, 0, 0);
-            this.patientOverviewHeaderLayout.Controls.Add(this.label7, 1, 0);
-            this.patientOverviewHeaderLayout.Controls.Add(this.label8, 3, 0);
-            this.patientOverviewHeaderLayout.Controls.Add(this.checkBox2, 4, 0);
+            this.patientOverviewHeaderLayout.Controls.Add(this.patientOverviewHeaderWeightLabel, 3, 0);
+            this.patientOverviewHeaderLayout.Controls.Add(this.patientOverviewHeaderSelectAllCheck, 0, 0);
+            this.patientOverviewHeaderLayout.Controls.Add(this.patientOverviewHeaderPatientNameLabel, 1, 0);
+            this.patientOverviewHeaderLayout.Controls.Add(this.patientOverviewHeaderPatientDelayLabel, 3, 0);
             this.patientOverviewHeaderLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientOverviewHeaderLayout.Location = new System.Drawing.Point(0, 0);
             this.patientOverviewHeaderLayout.Margin = new System.Windows.Forms.Padding(0);
             this.patientOverviewHeaderLayout.Name = "patientOverviewHeaderLayout";
             this.patientOverviewHeaderLayout.RowCount = 1;
             this.patientOverviewHeaderLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.patientOverviewHeaderLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.patientOverviewHeaderLayout.Size = new System.Drawing.Size(1404, 49);
             this.patientOverviewHeaderLayout.TabIndex = 3;
             // 
-            // checkBox1
+            // patientOverviewHeaderWeightLabel
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(5, 5);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(18, 39);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.patientOverviewHeaderWeightLabel.AutoSize = true;
+            this.patientOverviewHeaderWeightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewHeaderWeightLabel.Location = new System.Drawing.Point(248, 1);
+            this.patientOverviewHeaderWeightLabel.MinimumSize = new System.Drawing.Size(80, 0);
+            this.patientOverviewHeaderWeightLabel.Name = "patientOverviewHeaderWeightLabel";
+            this.patientOverviewHeaderWeightLabel.Size = new System.Drawing.Size(80, 47);
+            this.patientOverviewHeaderWeightLabel.TabIndex = 7;
+            this.patientOverviewHeaderWeightLabel.Text = "Weight";
+            this.patientOverviewHeaderWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.patientOverviewHeaderWeightLabel.Click += new System.EventHandler(this.patientOverviewHeaderWeightLabel_Click);
             // 
-            // label7
+            // patientOverviewHeaderSelectAllCheck
             // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(32, 1);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.MinimumSize = new System.Drawing.Size(160, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 47);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "PatientName";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.patientOverviewHeaderSelectAllCheck.AutoSize = true;
+            this.patientOverviewHeaderSelectAllCheck.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewHeaderSelectAllCheck.Location = new System.Drawing.Point(5, 5);
+            this.patientOverviewHeaderSelectAllCheck.Margin = new System.Windows.Forms.Padding(4);
+            this.patientOverviewHeaderSelectAllCheck.MaximumSize = new System.Drawing.Size(20, 0);
+            this.patientOverviewHeaderSelectAllCheck.MinimumSize = new System.Drawing.Size(20, 0);
+            this.patientOverviewHeaderSelectAllCheck.Name = "patientOverviewHeaderSelectAllCheck";
+            this.patientOverviewHeaderSelectAllCheck.Size = new System.Drawing.Size(20, 39);
+            this.patientOverviewHeaderSelectAllCheck.TabIndex = 0;
+            this.patientOverviewHeaderSelectAllCheck.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // patientOverviewHeaderPatientNameLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(202, 1);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.MaximumSize = new System.Drawing.Size(107, 0);
-            this.label8.MinimumSize = new System.Drawing.Size(107, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 47);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Delay";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.patientOverviewHeaderPatientNameLabel.AutoSize = true;
+            this.patientOverviewHeaderPatientNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewHeaderPatientNameLabel.Location = new System.Drawing.Point(33, 1);
+            this.patientOverviewHeaderPatientNameLabel.MaximumSize = new System.Drawing.Size(120, 0);
+            this.patientOverviewHeaderPatientNameLabel.MinimumSize = new System.Drawing.Size(120, 0);
+            this.patientOverviewHeaderPatientNameLabel.Name = "patientOverviewHeaderPatientNameLabel";
+            this.patientOverviewHeaderPatientNameLabel.Size = new System.Drawing.Size(120, 47);
+            this.patientOverviewHeaderPatientNameLabel.TabIndex = 6;
+            this.patientOverviewHeaderPatientNameLabel.Text = "PatientName";
+            this.patientOverviewHeaderPatientNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // checkBox2
+            // patientOverviewHeaderPatientDelayLabel
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox2.Location = new System.Drawing.Point(318, 5);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBox2.MaximumSize = new System.Drawing.Size(133, 0);
-            this.checkBox2.MinimumSize = new System.Drawing.Size(133, 0);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(133, 39);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "Enable Weight";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.patientOverviewHeaderPatientDelayLabel.AutoSize = true;
+            this.patientOverviewHeaderPatientDelayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewHeaderPatientDelayLabel.Location = new System.Drawing.Point(161, 1);
+            this.patientOverviewHeaderPatientDelayLabel.MinimumSize = new System.Drawing.Size(80, 0);
+            this.patientOverviewHeaderPatientDelayLabel.Name = "patientOverviewHeaderPatientDelayLabel";
+            this.patientOverviewHeaderPatientDelayLabel.Size = new System.Drawing.Size(80, 47);
+            this.patientOverviewHeaderPatientDelayLabel.TabIndex = 5;
+            this.patientOverviewHeaderPatientDelayLabel.Text = "Delay";
+            this.patientOverviewHeaderPatientDelayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // patientOverviewPanel
             // 
@@ -709,6 +711,7 @@
             // patientOverviewLayout
             // 
             this.patientOverviewLayout.AutoScroll = true;
+            this.patientOverviewLayout.AutoSize = true;
             this.patientOverviewLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.patientOverviewLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.patientOverviewLayout.ColumnCount = 9;
@@ -723,8 +726,8 @@
             this.patientOverviewLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.patientOverviewLayout.Controls.Add(this.patientRowSelect, 0, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowName, 1, 0);
-            this.patientOverviewLayout.Controls.Add(this.patientRowDelay, 3, 0);
-            this.patientOverviewLayout.Controls.Add(this.patientRowWeight, 4, 0);
+            this.patientOverviewLayout.Controls.Add(this.patientRowDelay, 2, 0);
+            this.patientOverviewLayout.Controls.Add(this.patientRowWeight, 3, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowRandomLayout, 5, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowTreatmentLayout, 6, 0);
             this.patientOverviewLayout.Controls.Add(this.patientRowTreatmentButton, 7, 0);
@@ -745,63 +748,67 @@
             this.patientRowSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientRowSelect.Location = new System.Drawing.Point(5, 5);
             this.patientRowSelect.Margin = new System.Windows.Forms.Padding(4);
-            this.patientRowSelect.MaximumSize = new System.Drawing.Size(0, 31);
+            this.patientRowSelect.MaximumSize = new System.Drawing.Size(20, 25);
+            this.patientRowSelect.MinimumSize = new System.Drawing.Size(20, 0);
             this.patientRowSelect.Name = "patientRowSelect";
-            this.patientRowSelect.Size = new System.Drawing.Size(18, 31);
+            this.patientRowSelect.Size = new System.Drawing.Size(20, 25);
             this.patientRowSelect.TabIndex = 1;
             this.patientRowSelect.UseVisualStyleBackColor = true;
             // 
             // patientRowName
             // 
-            this.patientRowName.Location = new System.Drawing.Point(32, 8);
-            this.patientRowName.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.patientRowName.MinimumSize = new System.Drawing.Size(159, 4);
+            this.patientRowName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientRowName.Location = new System.Drawing.Point(33, 6);
+            this.patientRowName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientRowName.MaximumSize = new System.Drawing.Size(120, 25);
+            this.patientRowName.MaxLength = 20;
+            this.patientRowName.MinimumSize = new System.Drawing.Size(120, 20);
             this.patientRowName.Name = "patientRowName";
-            this.patientRowName.Size = new System.Drawing.Size(159, 22);
+            this.patientRowName.Size = new System.Drawing.Size(120, 22);
             this.patientRowName.TabIndex = 2;
+            this.patientRowName.WordWrap = false;
             // 
             // patientRowDelay
             // 
-            this.patientRowDelay.Location = new System.Drawing.Point(201, 8);
-            this.patientRowDelay.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.patientRowDelay.MaximumSize = new System.Drawing.Size(107, 0);
+            this.patientRowDelay.Location = new System.Drawing.Point(160, 6);
+            this.patientRowDelay.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientRowDelay.MinimumSize = new System.Drawing.Size(80, 0);
             this.patientRowDelay.Name = "patientRowDelay";
-            this.patientRowDelay.Size = new System.Drawing.Size(107, 22);
-            this.patientRowDelay.TabIndex = 3;
-            this.patientRowDelay.ThousandsSeparator = true;
+            this.patientRowDelay.Size = new System.Drawing.Size(80, 22);
+            this.patientRowDelay.TabIndex = 13;
             // 
             // patientRowWeight
             // 
-            this.patientRowWeight.Location = new System.Drawing.Point(317, 8);
-            this.patientRowWeight.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.patientRowWeight.MaximumSize = new System.Drawing.Size(107, 0);
-            this.patientRowWeight.MinimumSize = new System.Drawing.Size(133, 0);
+            this.patientRowWeight.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientRowWeight.Location = new System.Drawing.Point(247, 6);
+            this.patientRowWeight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientRowWeight.MinimumSize = new System.Drawing.Size(80, 0);
             this.patientRowWeight.Name = "patientRowWeight";
-            this.patientRowWeight.Size = new System.Drawing.Size(133, 22);
+            this.patientRowWeight.Size = new System.Drawing.Size(80, 22);
             this.patientRowWeight.TabIndex = 4;
             // 
             // patientRowRandomLayout
             // 
+            this.patientRowRandomLayout.AutoSize = true;
+            this.patientRowRandomLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.patientRowRandomLayout.Controls.Add(this.patientRowRandomButton);
             this.patientRowRandomLayout.Controls.Add(this.patientRowRandomRangeSelect);
             this.patientRowRandomLayout.Controls.Add(this.patientRowRandomRangeMin);
             this.patientRowRandomLayout.Controls.Add(this.patientRowRandomRangeLabel);
             this.patientRowRandomLayout.Controls.Add(this.patientRowRandomRangeMax);
             this.patientRowRandomLayout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientRowRandomLayout.Location = new System.Drawing.Point(455, 1);
+            this.patientRowRandomLayout.Location = new System.Drawing.Point(332, 1);
             this.patientRowRandomLayout.Margin = new System.Windows.Forms.Padding(0);
-            this.patientRowRandomLayout.MaximumSize = new System.Drawing.Size(253, 37);
             this.patientRowRandomLayout.Name = "patientRowRandomLayout";
-            this.patientRowRandomLayout.Size = new System.Drawing.Size(253, 37);
-            this.patientRowRandomLayout.TabIndex = 8;
+            this.patientRowRandomLayout.Size = new System.Drawing.Size(186, 32);
+            this.patientRowRandomLayout.TabIndex = 17;
             this.patientRowRandomLayout.WrapContents = false;
             // 
             // patientRowRandomButton
             // 
-            this.patientRowRandomButton.Location = new System.Drawing.Point(4, 4);
-            this.patientRowRandomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.patientRowRandomButton.Location = new System.Drawing.Point(3, 3);
             this.patientRowRandomButton.Name = "patientRowRandomButton";
-            this.patientRowRandomButton.Size = new System.Drawing.Size(31, 28);
+            this.patientRowRandomButton.Size = new System.Drawing.Size(25, 25);
             this.patientRowRandomButton.TabIndex = 0;
             this.patientRowRandomButton.Text = "R";
             this.patientRowRandomButton.UseVisualStyleBackColor = true;
@@ -809,44 +816,43 @@
             // patientRowRandomRangeSelect
             // 
             this.patientRowRandomRangeSelect.AutoSize = true;
-            this.patientRowRandomRangeSelect.Location = new System.Drawing.Point(43, 4);
-            this.patientRowRandomRangeSelect.Margin = new System.Windows.Forms.Padding(4);
-            this.patientRowRandomRangeSelect.MinimumSize = new System.Drawing.Size(0, 31);
+            this.patientRowRandomRangeSelect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientRowRandomRangeSelect.Location = new System.Drawing.Point(34, 3);
             this.patientRowRandomRangeSelect.Name = "patientRowRandomRangeSelect";
-            this.patientRowRandomRangeSelect.Size = new System.Drawing.Size(18, 31);
+            this.patientRowRandomRangeSelect.Size = new System.Drawing.Size(18, 26);
             this.patientRowRandomRangeSelect.TabIndex = 1;
             this.patientRowRandomRangeSelect.UseVisualStyleBackColor = true;
             // 
             // patientRowRandomRangeMin
             // 
-            this.patientRowRandomRangeMin.Location = new System.Drawing.Point(69, 7);
-            this.patientRowRandomRangeMin.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.patientRowRandomRangeMin.MaximumSize = new System.Drawing.Size(67, 0);
-            this.patientRowRandomRangeMin.MinimumSize = new System.Drawing.Size(67, 0);
+            this.patientRowRandomRangeMin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientRowRandomRangeMin.Location = new System.Drawing.Point(58, 5);
+            this.patientRowRandomRangeMin.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientRowRandomRangeMin.MinimumSize = new System.Drawing.Size(50, 0);
             this.patientRowRandomRangeMin.Name = "patientRowRandomRangeMin";
-            this.patientRowRandomRangeMin.Size = new System.Drawing.Size(67, 22);
-            this.patientRowRandomRangeMin.TabIndex = 2;
+            this.patientRowRandomRangeMin.Size = new System.Drawing.Size(50, 22);
+            this.patientRowRandomRangeMin.TabIndex = 4;
             // 
             // patientRowRandomRangeLabel
             // 
             this.patientRowRandomRangeLabel.AutoSize = true;
-            this.patientRowRandomRangeLabel.Location = new System.Drawing.Point(144, 7);
-            this.patientRowRandomRangeLabel.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.patientRowRandomRangeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientRowRandomRangeLabel.Location = new System.Drawing.Point(114, 0);
             this.patientRowRandomRangeLabel.Name = "patientRowRandomRangeLabel";
-            this.patientRowRandomRangeLabel.Size = new System.Drawing.Size(21, 17);
-            this.patientRowRandomRangeLabel.TabIndex = 4;
-            this.patientRowRandomRangeLabel.Text = " - ";
+            this.patientRowRandomRangeLabel.Size = new System.Drawing.Size(13, 32);
+            this.patientRowRandomRangeLabel.TabIndex = 3;
+            this.patientRowRandomRangeLabel.Text = "-";
             this.patientRowRandomRangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // patientRowRandomRangeMax
             // 
-            this.patientRowRandomRangeMax.Location = new System.Drawing.Point(173, 7);
-            this.patientRowRandomRangeMax.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.patientRowRandomRangeMax.MaximumSize = new System.Drawing.Size(67, 0);
-            this.patientRowRandomRangeMax.MinimumSize = new System.Drawing.Size(67, 0);
+            this.patientRowRandomRangeMax.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientRowRandomRangeMax.Location = new System.Drawing.Point(133, 5);
+            this.patientRowRandomRangeMax.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.patientRowRandomRangeMax.MinimumSize = new System.Drawing.Size(50, 0);
             this.patientRowRandomRangeMax.Name = "patientRowRandomRangeMax";
-            this.patientRowRandomRangeMax.Size = new System.Drawing.Size(67, 22);
-            this.patientRowRandomRangeMax.TabIndex = 3;
+            this.patientRowRandomRangeMax.Size = new System.Drawing.Size(50, 22);
+            this.patientRowRandomRangeMax.TabIndex = 2;
             // 
             // patientRowTreatmentLayout
             // 
@@ -857,20 +863,24 @@
             this.patientRowTreatmentLayout.Controls.Add(this.patientRowTreatment3);
             this.patientRowTreatmentLayout.Controls.Add(this.patientRowTreatment4);
             this.patientRowTreatmentLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.patientRowTreatmentLayout.Location = new System.Drawing.Point(713, 5);
-            this.patientRowTreatmentLayout.Margin = new System.Windows.Forms.Padding(4);
+            this.patientRowTreatmentLayout.Location = new System.Drawing.Point(519, 1);
+            this.patientRowTreatmentLayout.Margin = new System.Windows.Forms.Padding(0);
             this.patientRowTreatmentLayout.MaximumSize = new System.Drawing.Size(0, 74);
             this.patientRowTreatmentLayout.Name = "patientRowTreatmentLayout";
-            this.patientRowTreatmentLayout.Size = new System.Drawing.Size(468, 74);
+            this.patientRowTreatmentLayout.Size = new System.Drawing.Size(666, 74);
             this.patientRowTreatmentLayout.TabIndex = 9;
+            this.patientRowTreatmentLayout.WrapContents = false;
             // 
             // patientRowTreatment1
             // 
+            this.patientRowTreatment1.Dock = System.Windows.Forms.DockStyle.Left;
             this.patientRowTreatment1.FormattingEnabled = true;
             this.patientRowTreatment1.Location = new System.Drawing.Point(4, 4);
             this.patientRowTreatment1.Margin = new System.Windows.Forms.Padding(4);
+            this.patientRowTreatment1.MaxDropDownItems = 50;
             this.patientRowTreatment1.Name = "patientRowTreatment1";
             this.patientRowTreatment1.Size = new System.Drawing.Size(160, 24);
+            this.patientRowTreatment1.Sorted = true;
             this.patientRowTreatment1.TabIndex = 0;
             // 
             // patientRowTreatment2
@@ -885,7 +895,7 @@
             // patientRowTreatment3
             // 
             this.patientRowTreatment3.FormattingEnabled = true;
-            this.patientRowTreatment3.Location = new System.Drawing.Point(4, 36);
+            this.patientRowTreatment3.Location = new System.Drawing.Point(340, 4);
             this.patientRowTreatment3.Margin = new System.Windows.Forms.Padding(4);
             this.patientRowTreatment3.Name = "patientRowTreatment3";
             this.patientRowTreatment3.Size = new System.Drawing.Size(160, 24);
@@ -894,7 +904,7 @@
             // patientRowTreatment4
             // 
             this.patientRowTreatment4.FormattingEnabled = true;
-            this.patientRowTreatment4.Location = new System.Drawing.Point(172, 36);
+            this.patientRowTreatment4.Location = new System.Drawing.Point(508, 4);
             this.patientRowTreatment4.Margin = new System.Windows.Forms.Padding(4);
             this.patientRowTreatment4.Name = "patientRowTreatment4";
             this.patientRowTreatment4.Size = new System.Drawing.Size(160, 24);
@@ -904,8 +914,10 @@
             // 
             this.patientRowTreatmentButton.Location = new System.Drawing.Point(1190, 5);
             this.patientRowTreatmentButton.Margin = new System.Windows.Forms.Padding(4);
+            this.patientRowTreatmentButton.MaximumSize = new System.Drawing.Size(100, 25);
+            this.patientRowTreatmentButton.MinimumSize = new System.Drawing.Size(100, 25);
             this.patientRowTreatmentButton.Name = "patientRowTreatmentButton";
-            this.patientRowTreatmentButton.Size = new System.Drawing.Size(100, 28);
+            this.patientRowTreatmentButton.Size = new System.Drawing.Size(100, 25);
             this.patientRowTreatmentButton.TabIndex = 10;
             this.patientRowTreatmentButton.Text = "Treatments";
             this.patientRowTreatmentButton.UseVisualStyleBackColor = true;
@@ -914,8 +926,10 @@
             // 
             this.patientRowTraits.Location = new System.Drawing.Point(1299, 5);
             this.patientRowTraits.Margin = new System.Windows.Forms.Padding(4);
+            this.patientRowTraits.MaximumSize = new System.Drawing.Size(100, 25);
+            this.patientRowTraits.MinimumSize = new System.Drawing.Size(100, 25);
             this.patientRowTraits.Name = "patientRowTraits";
-            this.patientRowTraits.Size = new System.Drawing.Size(100, 28);
+            this.patientRowTraits.Size = new System.Drawing.Size(100, 25);
             this.patientRowTraits.TabIndex = 11;
             this.patientRowTraits.Text = "Traits";
             this.patientRowTraits.UseVisualStyleBackColor = true;
@@ -926,6 +940,7 @@
             this.patientOverviewFooterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.patientOverviewFooterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.patientOverviewFooterLayout.Controls.Add(this.flowLayoutPanel3, 1, 0);
+            this.patientOverviewFooterLayout.Controls.Add(this.patientOverviewOptionsLayout, 0, 0);
             this.patientOverviewFooterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patientOverviewFooterLayout.Location = new System.Drawing.Point(4, 416);
             this.patientOverviewFooterLayout.Margin = new System.Windows.Forms.Padding(4);
@@ -969,6 +984,41 @@
             this.buttonPatientOverviewAddRow.Text = "Add";
             this.buttonPatientOverviewAddRow.UseVisualStyleBackColor = true;
             this.buttonPatientOverviewAddRow.Click += new System.EventHandler(this.buttonPatientOverviewAddRow_Click);
+            // 
+            // patientOverviewOptionsLayout
+            // 
+            this.patientOverviewOptionsLayout.Controls.Add(this.button1);
+            this.patientOverviewOptionsLayout.Controls.Add(this.patientOverviewHeaderEnableWeightCheck);
+            this.patientOverviewOptionsLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewOptionsLayout.Location = new System.Drawing.Point(3, 3);
+            this.patientOverviewOptionsLayout.Name = "patientOverviewOptionsLayout";
+            this.patientOverviewOptionsLayout.Size = new System.Drawing.Size(1166, 35);
+            this.patientOverviewOptionsLayout.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 27);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Re-Calculate Delay";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // patientOverviewHeaderEnableWeightCheck
+            // 
+            this.patientOverviewHeaderEnableWeightCheck.AutoSize = true;
+            this.patientOverviewHeaderEnableWeightCheck.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.patientOverviewHeaderEnableWeightCheck.Location = new System.Drawing.Point(149, 4);
+            this.patientOverviewHeaderEnableWeightCheck.Margin = new System.Windows.Forms.Padding(4);
+            this.patientOverviewHeaderEnableWeightCheck.MaximumSize = new System.Drawing.Size(133, 0);
+            this.patientOverviewHeaderEnableWeightCheck.MinimumSize = new System.Drawing.Size(133, 0);
+            this.patientOverviewHeaderEnableWeightCheck.Name = "patientOverviewHeaderEnableWeightCheck";
+            this.patientOverviewHeaderEnableWeightCheck.Size = new System.Drawing.Size(133, 25);
+            this.patientOverviewHeaderEnableWeightCheck.TabIndex = 8;
+            this.patientOverviewHeaderEnableWeightCheck.Text = "Enable Weight";
+            this.patientOverviewHeaderEnableWeightCheck.UseVisualStyleBackColor = true;
             // 
             // tabPatientChances
             // 
@@ -1083,6 +1133,7 @@
             this.patientOverviewHeaderLayout.ResumeLayout(false);
             this.patientOverviewHeaderLayout.PerformLayout();
             this.patientOverviewPanel.ResumeLayout(false);
+            this.patientOverviewPanel.PerformLayout();
             this.patientOverviewLayout.ResumeLayout(false);
             this.patientOverviewLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientRowDelay)).EndInit();
@@ -1095,6 +1146,8 @@
             this.patientOverviewFooterLayout.ResumeLayout(false);
             this.patientOverviewFooterLayout.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.patientOverviewOptionsLayout.ResumeLayout(false);
+            this.patientOverviewOptionsLayout.PerformLayout();
             this.previewSplitContainer.Panel1.ResumeLayout(false);
             this.previewSplitContainer.Panel1.PerformLayout();
             this.previewSplitContainer.Panel2.ResumeLayout(false);
@@ -1158,14 +1211,6 @@
         private System.Windows.Forms.TableLayoutPanel patientOverviewLayout;
         private System.Windows.Forms.CheckBox patientRowSelect;
         private System.Windows.Forms.TextBox patientRowName;
-        private System.Windows.Forms.NumericUpDown patientRowDelay;
-        private System.Windows.Forms.NumericUpDown patientRowWeight;
-        private System.Windows.Forms.FlowLayoutPanel patientRowRandomLayout;
-        private System.Windows.Forms.Button patientRowRandomButton;
-        private System.Windows.Forms.CheckBox patientRowRandomRangeSelect;
-        private System.Windows.Forms.NumericUpDown patientRowRandomRangeMin;
-        private System.Windows.Forms.Label patientRowRandomRangeLabel;
-        private System.Windows.Forms.NumericUpDown patientRowRandomRangeMax;
         private System.Windows.Forms.FlowLayoutPanel patientRowTreatmentLayout;
         private System.Windows.Forms.ComboBox patientRowTreatment1;
         private System.Windows.Forms.ComboBox patientRowTreatment2;
@@ -1174,10 +1219,21 @@
         private System.Windows.Forms.Button patientRowTreatmentButton;
         private System.Windows.Forms.Button patientRowTraits;
         private System.Windows.Forms.TableLayoutPanel patientOverviewHeaderLayout;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox patientOverviewHeaderSelectAllCheck;
+        private System.Windows.Forms.Label patientOverviewHeaderPatientNameLabel;
+        private System.Windows.Forms.Label patientOverviewHeaderPatientDelayLabel;
+        private System.Windows.Forms.Label patientOverviewHeaderWeightLabel;
+        private System.Windows.Forms.FlowLayoutPanel patientOverviewOptionsLayout;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox patientOverviewHeaderEnableWeightCheck;
+        private System.Windows.Forms.NumericUpDown patientRowDelay;
+        private System.Windows.Forms.NumericUpDown patientRowWeight;
+        private System.Windows.Forms.Label patientRowRandomRangeLabel;
+        private System.Windows.Forms.NumericUpDown patientRowRandomRangeMin;
+        private System.Windows.Forms.NumericUpDown patientRowRandomRangeMax;
+        private System.Windows.Forms.FlowLayoutPanel patientRowRandomLayout;
+        private System.Windows.Forms.Button patientRowRandomButton;
+        private System.Windows.Forms.CheckBox patientRowRandomRangeSelect;
     }
 }
 
